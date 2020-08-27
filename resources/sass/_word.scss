@@ -1,0 +1,16 @@
+.words {
+    padding: 0 20px;
+    text-transform: uppercase;
+    .first-letter {
+        font-size: 30pt;
+    }
+    .edit-icon {
+        font-size: 10pt;
+    }
+    .word {
+        display: block;
+        font-size: 20pt;
+        color: #AC3B61;
+        padding-left: 40px;
+    }
+}

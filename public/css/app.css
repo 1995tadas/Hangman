@@ -1,0 +1,50 @@
+body,
+html {
+  margin: 0;
+  padding: 5px 0;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #EEE2DC;
+}
+
+.custom-container {
+  height: 100%;
+  width: 80%;
+  padding: 20px 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.words {
+  padding: 0 20px;
+  text-transform: uppercase;
+}
+
+.words .first-letter {
+  font-size: 30pt;
+}
+
+.words .edit-icon {
+  font-size: 10pt;
+}
+
+.words .word {
+  display: block;
+  font-size: 20pt;
+  color: #AC3B61;
+  padding-left: 40px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.form-container input[type=text] {
+  width: 50%;
+  font-size: 2em;
+}
+

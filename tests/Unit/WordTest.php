@@ -3,11 +3,13 @@
 namespace Tests\Unit;
 
 use App\Word;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class WordTest extends TestCase
 {
+    use RefreshDatabase;
 
     /** @test */
     public function can_word_be_saved()
@@ -16,7 +18,7 @@ class WordTest extends TestCase
         $response = $this->post(route('words.store'), [
             'word' => $wordFactory->word,
         ]);
-        $response->assertStatus(200);
+        $response->assertStatus(302);
     }
 
     /** @test */
@@ -26,7 +28,6 @@ class WordTest extends TestCase
             'word' => '',
         ]);
         $response->assertSessionHasErrors();
-
     }
 
     /** @test */
@@ -58,5 +59,29 @@ class WordTest extends TestCase
             'word' => Str::random(256)
         ]);
         $response->assertSessionHasErrors();
+    }
+
+    /** @test */
+    public function does_create_route_works()
+    {
+        $response = $this->get(route('words.create'));
+        $response->assertStatus(200);
+    }
+
+    /** @test */
+    public function does_index_have_words()
+    {
+        $response = $this->get(route('words.index'));
+        $response->assertStatus(200);
+        $response->assertViewHas('words');
+    }
+
+    /** @test */
+    public function does_edit_have_word()
+    {
+        $wordFactory = factory(Word::class)->create();
+        $response = $this->get(route('words.edit', ['word' => $wordFactory->id]));
+        $response->assertStatus(200);
+        $response->assertViewHas('word');
     }
 }

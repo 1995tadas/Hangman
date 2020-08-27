@@ -15,4 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','layout.app');
 
-Route::post('word','WordController@store')->name('words.store');
+Route::name('words.')->group(function(){
+    Route::get('words','WordController@index')->name('index');
+    Route::view('words/create','words.create')->name('create');
+    Route::post('words','WordController@store')->name('store');
+    Route::get('words/{word}','WordController@edit')->name('edit');
+    Route::put('words/{word}','WordController@update')->name('update');
+});
+
