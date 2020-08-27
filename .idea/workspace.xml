@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ProjectId" id="1gg3VxOQUsT5QBweqzcKzcqYgEJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xamp\htdocs\hangman\database" />
+      <recent name="C:\xamp\htdocs\hangman\storage" />
+      <recent name="C:\xamp\htdocs\hangman\resources\views\layout" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="" />
+      <created>1598522435441</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1598522435441</updated>
+      <workItem from="1598522436548" duration="13110000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598529852913">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1598529852913" />
+    <state x="584" y="100" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598524970531">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="584" y="100" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1598524970531" />
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598527993100">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1598527993100" />
+    <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1598529354402">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1598529354402" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1598531505827">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1598531505827" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1598531710832">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1598531710832" />
+  </component>
+</project>
