@@ -1,16 +1,32 @@
+
 .form-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     height: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
 
     input[type="text"] {
+        padding: 5px;
         width: 50%;
         font-size: 2em;
+        @media only screen and (max-width: 768px) {
+            width: 80%;
+        }
     }
 
     input[type="submit"] {
-        //display: block;
+        cursor: pointer;
+        margin-top: 15px;
+        color: #fff;
+        background-color: #646165;
+        border: 0;
+        font-size: 1.1em;
+        padding: 10px 0;
+        width: 30%;
+    }
+    .error-text {
+        color: #f7261d;
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WordRequest;
+use App\Http\Services\WordService;
 use App\Word;
 
 class WordController extends Controller
@@ -15,14 +16,12 @@ class WordController extends Controller
 
     public function store(WordRequest $request)
     {
-        $length = strlen($request->word);
+        $wordService = new WordService();
         $word = Word::create([
             'word' => $request->word,
-            'length' => $length
+            'length' => $wordService->wordLength($request->word)
         ]);
-        if ($word) {
-            return redirect(route('words.index'));
-        }
+        return $wordService->redirectOrFail($word, 'words.index');
     }
 
     public function edit(Word $word)
@@ -30,8 +29,15 @@ class WordController extends Controller
         return view('words.edit', compact('word'));
     }
 
-    public function update(WordRequest $request)
+    public function update(WordRequest $request, $id)
     {
-        dd($request);
+        $wordService = new WordService();
+        $wordModel = new Word;
+        $word = $wordModel->findOrFail($id)->update([
+            'word' => $request->word,
+            'length' => $wordService->wordLength($request->word)
+        ]);
+        return $wordService->redirectOrFail($word, 'words.index');
     }
+
 }

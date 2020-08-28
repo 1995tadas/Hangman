@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Word;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tests\TestCase;
 
 class WordTest extends TestCase
@@ -17,6 +18,17 @@ class WordTest extends TestCase
         $wordFactory = factory(Word::class)->make();
         $response = $this->post(route('words.store'), [
             'word' => $wordFactory->word,
+        ]);
+        $response->assertStatus(302);
+    }
+
+    /** @test */
+    public function can_word_be_updated()
+    {
+        $wordFactoryCreate = factory(Word::class)->create();
+        $wordFactoryUpdate = factory(Word::class)->make();
+        $response = $this->put(route('words.update', ['id' => $wordFactoryCreate->id]), [
+            'word' => $wordFactoryUpdate->word,
         ]);
         $response->assertStatus(302);
     }
@@ -51,12 +63,29 @@ class WordTest extends TestCase
         $response->assertSessionHasErrors();
     }
 
-    /** @test
-     */
+    /** @test */
+    public function word_can_not_be_shorter_than_2_symbols()
+    {
+        $response = $this->post(route('words.store'), [
+            'word' => Str::random(1)
+        ]);
+        $response->assertSessionHasErrors();
+    }
+
+    /** @test */
     public function word_can_not_be_longer_than_255_symbols()
     {
         $response = $this->post(route('words.store'), [
             'word' => Str::random(256)
+        ]);
+        $response->assertSessionHasErrors();
+    }
+
+    /** @test */
+    public function word_can_not_contain_spaces()
+    {
+        $response = $this->post(route('words.store'), [
+            'word' => 'test test'
         ]);
         $response->assertSessionHasErrors();
     }
@@ -83,5 +112,32 @@ class WordTest extends TestCase
         $response = $this->get(route('words.edit', ['word' => $wordFactory->id]));
         $response->assertStatus(200);
         $response->assertViewHas('word');
+    }
+
+    /** @test */
+    public function does_edit_word_id_parameter_valid()
+    {
+        $wordFactory = factory(Word::class)->make();
+        $response = $this->get(route('words.edit', ['word' => $wordFactory->word]));
+        $response->assertStatus(404);
+    }
+
+    /** @test */
+    public function does_edit_id_parameter_do_exist()
+    {
+        $wordFactory = factory(Word::class)->create();
+        $wordFactory->delete();
+        $response = $this->get(route('words.edit', ['word' => $wordFactory->id]));
+        $response->assertStatus(404);
+    }
+
+    /** @test */
+    public function does_update_word_id_parameter_valid()
+    {
+        $wordFactory = factory(Word::class)->make();
+        $response = $this->put(route('words.edit', ['word' => $wordFactory->word]), [
+            'word' => $wordFactory->word
+        ]);
+        $response->assertStatus(404);
     }
 }

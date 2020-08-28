@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/','layout.app');
+Route::view('/', 'layout.app');
 
-Route::name('words.')->group(function(){
-    Route::get('words','WordController@index')->name('index');
-    Route::view('words/create','words.create')->name('create');
-    Route::post('words','WordController@store')->name('store');
-    Route::get('words/{word}','WordController@edit')->name('edit');
-    Route::put('words/{word}','WordController@update')->name('update');
+Route::name('words.')->group(function () {
+    Route::get('words', 'WordController@index')->name('index');
+    Route::view('words/create', 'words.create')->name('create');
+    Route::post('words', 'WordController@store')->name('store');
+    Route::get('words/edit/{word}', 'WordController@edit')->where('word', '[0-9]+')->name('edit');
+    Route::put('words/{id}', 'WordController@update')->where('id', '[0-9]+')->name('update');
 });
 

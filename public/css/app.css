@@ -1,4 +1,4 @@
-body,
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap);body,
 html {
   margin: 0;
   padding: 5px 0;
@@ -41,10 +41,33 @@ html {
   flex-direction: column;
   align-items: center;
   height: 100%;
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .form-container input[type=text] {
+  padding: 5px;
   width: 50%;
   font-size: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+  .form-container input[type=text] {
+    width: 80%;
+  }
+}
+
+.form-container input[type=submit] {
+  cursor: pointer;
+  margin-top: 15px;
+  color: #fff;
+  background-color: #646165;
+  border: 0;
+  font-size: 1.1em;
+  padding: 10px 0;
+  width: 30%;
+}
+
+.form-container .error-text {
+  color: #f7261d;
 }
 

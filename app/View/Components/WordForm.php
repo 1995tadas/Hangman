@@ -6,19 +6,19 @@ use Illuminate\View\Component;
 
 class WordForm extends Component
 {
-    public $method;
     public $action;
+    public $value;
 
     /**
      * Create a new component instance.
      *
      * @param $action
-     * @param $method
+     * @param string $value
      */
-    public function __construct($action, $method)
+    public function __construct($action, $value = '')
     {
         $this->action = $action;
-        $this->method = $method;
+        $this->value = $value;
     }
 
     /**
