@@ -10,7 +10,7 @@ class WordController extends Controller
 {
     public function index()
     {
-        $words = Word::all(['word', 'id'])->sortBy('word');
+        $words = Word::all(['word', 'id'])->sortBy('word')->values();
         return view('words.index', compact('words'));
     }
 
@@ -18,7 +18,7 @@ class WordController extends Controller
     {
         $wordService = new WordService();
         $word = Word::create([
-            'word' => $request->word,
+            'word' => strtolower($request->word),
             'length' => $wordService->wordLength($request->word)
         ]);
         return $wordService->redirectOrFail($word, 'words.index');
@@ -34,7 +34,7 @@ class WordController extends Controller
         $wordService = new WordService();
         $wordModel = new Word;
         $word = $wordModel->findOrFail($id)->update([
-            'word' => $request->word,
+            'word' => strtolower($request->word),
             'length' => $wordService->wordLength($request->word)
         ]);
         return $wordService->redirectOrFail($word, 'words.index');

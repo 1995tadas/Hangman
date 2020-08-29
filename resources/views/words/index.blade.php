@@ -2,21 +2,15 @@
 @section('content')
     <div class="custom-container">
         <section class="words">
-            @php
-                $firstLetter = '';
-            @endphp
-            @forelse($words as $word)
-                @if($firstLetter != $word->word[0])
-                    <span class="first-letter">{{$firstLetter = $word->word[0]}}</span>
-                @endif
-                <span class="word">{{$word->word}}
-                    <a class="edit-icon" href="{{route('words.edit',['word' => $word->id])}}">
-                        <i class="fas fa-pencil-ruler"></i>
-                    </a>
-                </span>
-            @empty
+            <a class="admin-link" href="{{route('words.create')}}">
+                <i class="far fa-plus-square"></i>
+            </a>
+            @if(!$words->isEmpty())
+                <expand-words-component :words="{{$words}}" edit-route="{{route('words.edit',['word' =>'/'])}}">
+                </expand-words-component>
+            @else
                 <div>Empty</div>
-            @endforelse
+            @endif
         </section>
     </div>
 @endsection
