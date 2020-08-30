@@ -15,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'layout.app');
 
-Route::name('words.')->group(function () {
-    Route::get('words', 'WordController@index')->name('index');
-    Route::view('words/create', 'words.create')->name('create');
-    Route::post('words', 'WordController@store')->name('store');
-    Route::get('words/edit/{word}', 'WordController@edit')->where('word', '[0-9]+')->name('edit');
-    Route::put('words/{id}', 'WordController@update')->where('id', '[0-9]+')->name('update');
+Route::prefix('words')->name('words.')->group(function () {
+    Route::get('/', 'WordController@index')->name('index');
+    Route::view('create', 'words.create')->name('create');
+    Route::post('/', 'WordController@store')->name('store');
+    Route::get('edit/{word}', 'WordController@edit')->where('word', '[0-9]+')->name('edit');
+    Route::put('{id}', 'WordController@update')->where('id', '[0-9]+')->name('update');
+    Route::delete('{word}', 'WordController@destroy')->where('id', '[0-9]+')->name('destroy');
 });
 

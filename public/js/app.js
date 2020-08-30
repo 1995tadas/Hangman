@@ -1933,6 +1933,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     words: {
@@ -1942,17 +1962,26 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     editRoute: {
       type: String,
       required: true
+    },
+    deleteRoute: {
+      type: String,
+      required: true
     }
   },
   data: function data() {
     return {
       formattedWords: [],
       showWords: [],
-      showAll: true
+      showAll: true,
+      selectedWordForModal: [],
+      closeDeleteModal: false,
+      readyToDelete: true,
+      empty: false
     };
   },
   created: function created() {
     this.formatFilteredArray();
+    this.checkIfWordsExist();
   },
   methods: {
     formatFilteredArray: function formatFilteredArray() {
@@ -1983,16 +2012,84 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         this.showWords.push(letter);
       }
     },
-    checkIfShow: function checkIfShow(letter) {
+    checkIfShowLetterWords: function checkIfShowLetterWords(letter) {
       if (this.showAll) {
         return !this.showWords.includes(letter);
       }
 
       return this.showWords.includes(letter);
     },
-    toggleShowAll: function toggleShowAll() {
+    checkIfShowLetter: function checkIfShowLetter(letter) {
+      return this.formattedWords[letter].filter(function (word) {
+        return word.length;
+      }).length > 0;
+    },
+    checkIfWordsExist: function checkIfWordsExist() {
+      var size = 0;
+
+      for (var _i = 0, _Object$keys = Object.keys(this.formattedWords); _i < _Object$keys.length; _i++) {
+        var element = _Object$keys[_i];
+
+        if (this.formattedWords[element].filter(Boolean).length > 0) {
+          size++;
+        }
+      }
+
+      if (size === 0) {
+        this.empty = true;
+      }
+    },
+    toggleShowFilter: function toggleShowFilter() {
       this.showAll = !this.showAll;
       this.showWords = [];
+    },
+    instantiateDeleteModal: function instantiateDeleteModal(index, letter) {
+      this.selectedWordForModal = [];
+      this.openModal();
+      Vue.set(this.selectedWordForModal, index, letter);
+    },
+    deleteWord: function deleteWord(index, letter) {
+      var _this = this;
+
+      this.readyToDelete = false;
+      axios["delete"](this.deleteRoute + '/' + index).then(function (response) {
+        if (response.data) {
+          delete _this.formattedWords[letter][index];
+
+          _this.checkIfWordsExist();
+
+          _this.closeDeleteModal = true;
+        }
+      })["catch"](function (error) {
+        console.log(error);
+      })["finally"](function () {
+        _this.readyToDelete = true;
+      });
+    },
+    closeModal: function closeModal() {
+      this.closeDeleteModal = true;
+    },
+    openModal: function openModal() {
+      this.closeDeleteModal = false;
+    }
+  },
+  computed: {
+    showDeleteModal: function showDeleteModal() {
+      return !this.closeDeleteModal && this.selectedWordForModal.length !== 0;
+    },
+    getSelectedWord: function getSelectedWord() {
+      var word = this.selectedWordForModal[this.getSelectedWordIndex];
+
+      if (typeof word !== "undefined") {
+        return word;
+      }
+    },
+    getSelectedWordIndex: function getSelectedWordIndex() {
+      var index = Object.keys(this.selectedWordForModal)[0];
+
+      if (/^\d+$/.test(index)) {
+        return index;
+      }
     }
   }
 });
@@ -37581,79 +37678,176 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("i", {
-        staticClass: "show-all-link fas",
-        class: _vm.showAll ? "fa-angle-double-up" : "fa-angle-double-down",
-        on: {
-          click: function($event) {
-            return _vm.toggleShowAll()
-          }
-        }
-      }),
-      _vm._v(" "),
-      _vm._l(Object.keys(_vm.formattedWords), function(letter) {
-        return _c(
-          "div",
-          [
-            _c(
-              "span",
-              {
-                staticClass: "first-letter",
-                on: {
-                  click: function($event) {
-                    return _vm.toggleWords(letter)
-                  }
-                }
-              },
-              [_vm._v(_vm._s(letter))]
-            ),
-            _vm._v(" "),
-            _c("i", {
-              staticClass: "fas",
-              class: _vm.checkIfShow(letter) ? "fa-minus" : "fa-plus"
-            }),
-            _vm._v(" "),
-            _vm._l(_vm.formattedWords[letter], function(word, index) {
-              return _c("div", { key: index }, [
-                _c(
-                  "span",
-                  {
-                    directives: [
-                      {
-                        name: "show",
-                        rawName: "v-show",
-                        value: _vm.checkIfShow(letter) && word,
-                        expression: "checkIfShow(letter) && word"
-                      }
-                    ],
-                    staticClass: "word"
-                  },
-                  [
-                    _vm._v(
-                      "\n                " + _vm._s(word) + "\n                "
-                    ),
+  return !_vm.empty
+    ? _c(
+        "div",
+        [
+          _c("i", {
+            staticClass: "show-all-link fas",
+            class: _vm.showAll ? "fa-angle-double-up" : "fa-angle-double-down",
+            on: {
+              click: function($event) {
+                return _vm.toggleShowFilter()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm._l(Object.keys(_vm.formattedWords), function(letter) {
+            return _c(
+              "div",
+              [
+                _vm.checkIfShowLetter(letter)
+                  ? [
+                      _c(
+                        "span",
+                        {
+                          staticClass: "first-letter",
+                          on: {
+                            click: function($event) {
+                              return _vm.toggleWords(letter)
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(letter))]
+                      ),
+                      _vm._v(" "),
+                      _c("i", {
+                        staticClass: "fas",
+                        class: _vm.checkIfShowLetterWords(letter)
+                          ? "fa-minus"
+                          : "fa-plus"
+                      })
+                    ]
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm._l(_vm.formattedWords[letter], function(word, index) {
+                  return _c("div", { key: index }, [
                     _c(
-                      "a",
+                      "span",
                       {
-                        staticClass: "edit-icon",
-                        attrs: { href: _vm.editRoute + "/" + index }
+                        directives: [
+                          {
+                            name: "show",
+                            rawName: "v-show",
+                            value: _vm.checkIfShowLetterWords(letter) && word,
+                            expression: "checkIfShowLetterWords(letter) && word"
+                          }
+                        ],
+                        staticClass: "word"
                       },
-                      [_c("i", { staticClass: "fas fa-pencil-ruler" })]
+                      [
+                        _vm._v(
+                          "\n                " +
+                            _vm._s(word) +
+                            "\n                "
+                        ),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "word-icon",
+                            attrs: { href: _vm.editRoute + "/" + index }
+                          },
+                          [_c("i", { staticClass: "fas fa-pencil-ruler" })]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.readyToDelete,
+                                expression: "readyToDelete"
+                              }
+                            ],
+                            staticClass: "word-icon",
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.instantiateDeleteModal(index, word)
+                              }
+                            }
+                          },
+                          [_c("i", { staticClass: "far fa-trash-alt" })]
+                        )
+                      ]
                     )
-                  ]
-                )
-              ])
-            })
-          ],
-          2
-        )
-      })
-    ],
-    2
-  )
+                  ])
+                })
+              ],
+              2
+            )
+          }),
+          _vm._v(" "),
+          _vm.showDeleteModal
+            ? _c(
+                "div",
+                {
+                  ref: "modal",
+                  staticClass: "delete-warning",
+                  on: {
+                    click: function($event) {
+                      if ($event.target !== $event.currentTarget) {
+                        return null
+                      }
+                      return _vm.closeModal()
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "delete-modal" }, [
+                    _c("h1", [
+                      _vm._v(
+                        "Delete " + _vm._s(_vm.getSelectedWord.toUpperCase())
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("ul", { staticClass: "delete-confirmation" }, [
+                      _c("li", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              "~click": function($event) {
+                                $event.preventDefault()
+                                _vm.deleteWord(
+                                  _vm.getSelectedWordIndex,
+                                  _vm.getSelectedWord.charAt(0)
+                                )
+                              }
+                            }
+                          },
+                          [_vm._v("Yes")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c(
+                          "a",
+                          {
+                            attrs: { href: "#" },
+                            on: {
+                              click: function($event) {
+                                $event.preventDefault()
+                                return _vm.closeModal()
+                              }
+                            }
+                          },
+                          [_vm._v("No")]
+                        )
+                      ])
+                    ])
+                  ])
+                ]
+              )
+            : _vm._e()
+        ],
+        2
+      )
+    : _c("div", [_vm._v("Empty")])
 }
 var staticRenderFns = []
 render._withStripped = true

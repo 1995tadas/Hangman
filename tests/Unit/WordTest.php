@@ -34,6 +34,14 @@ class WordTest extends TestCase
     }
 
     /** @test */
+    public function can_word_be_deleted()
+    {   $this->withoutExceptionHandling();
+        $wordFactoryCreate = factory(Word::class)->create();
+        $response = $this->delete(route('words.destroy', ['word' => $wordFactoryCreate->id]));
+        $response->assertStatus(200);
+    }
+
+    /** @test */
     public function word_can_not_be_empty()
     {
         $response = $this->post(route('words.store'), [
@@ -138,6 +146,22 @@ class WordTest extends TestCase
         $response = $this->put(route('words.edit', ['word' => $wordFactory->word]), [
             'word' => $wordFactory->word
         ]);
+        $response->assertStatus(404);
+    }
+
+    /** @test */
+    public function does_destroy_word_id_parameter_valid()
+    {
+        $wordFactory = factory(Word::class)->make();
+        $response = $this->delete(route('words.destroy', ['word' => $wordFactory->word]));
+        $response->assertStatus(404);
+    }
+    /** @test */
+    public function does_destroy_id_parameter_do_exist()
+    {
+        $wordFactory = factory(Word::class)->create();
+        $wordFactory->delete();
+        $response = $this->delete(route('words.destroy', ['word' => $wordFactory->id]));
         $response->assertStatus(404);
     }
 }

@@ -1,5 +1,6 @@
 .words {
     padding: 0 20px;
+    position: relative;
 
     .admin-link {
         font-family: 'IBM Plex Sans', sans-serif;
@@ -37,7 +38,7 @@
         }
     }
 
-    .edit-icon {
+    .word-icon {
         font-size: 10pt;
     }
 
@@ -47,5 +48,50 @@
         font-size: 20pt;
         color: #AC3B61;
         padding-left: 50px;
+    }
+
+    .delete-warning {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        background-color: rgba(000, 000, 000, 0.7);
+        top: 0;
+        left: 0;
+
+        .delete-modal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -50px;
+            margin-left: -200px;
+            min-width: 400px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            background-color: #fff;
+            box-sizing: border-box;
+            text-align: center;
+            padding: 20px;
+
+            h1 {
+                margin-bottom: 20px;
+            }
+
+            .delete-confirmation {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    display: inline;
+                    border: 1px dotted black;
+                    padding: 5px;
+
+                    &:last-child {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
     }
 }

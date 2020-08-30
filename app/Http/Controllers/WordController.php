@@ -40,4 +40,12 @@ class WordController extends Controller
         return $wordService->redirectOrFail($word, 'words.index');
     }
 
+    public function destroy(Word $word)
+    {
+        try {
+            return $word->delete();
+        } catch (\Exception $e) {
+            return $e;
+        }
+    }
 }
