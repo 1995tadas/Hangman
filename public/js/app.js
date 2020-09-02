@@ -1974,9 +1974,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       showWords: [],
       showAll: true,
       selectedWordForModal: [],
-      closeDeleteModal: false,
+      deleteModalStatus: false,
       readyToDelete: true,
-      empty: false
+      empty: false,
+      deleteModalWidth: 400
     };
   },
   created: function created() {
@@ -2043,6 +2044,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.showAll = !this.showAll;
       this.showWords = [];
     },
+    //delete Modal methods
     instantiateDeleteModal: function instantiateDeleteModal(index, letter) {
       this.selectedWordForModal = [];
       this.openModal();
@@ -2058,7 +2060,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
           _this.checkIfWordsExist();
 
-          _this.closeDeleteModal = true;
+          _this.closeModal();
         }
       })["catch"](function (error) {
         console.log(error);
@@ -2066,16 +2068,27 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         _this.readyToDelete = true;
       });
     },
-    closeModal: function closeModal() {
-      this.closeDeleteModal = true;
-    },
     openModal: function openModal() {
-      this.closeDeleteModal = false;
+      document.body.classList.add("no-scroll");
+      this.deleteModalStatus = false;
+      this.getDeleteModalWidth();
+    },
+    closeModal: function closeModal() {
+      document.body.classList.remove("no-scroll");
+      this.deleteModalStatus = true;
+    },
+    getDeleteModalWidth: function getDeleteModalWidth() {
+      var _this2 = this;
+
+      this.$nextTick(function () {
+        _this2.deleteModalWidth = _this2.$refs.deleteModal.getBoundingClientRect().width;
+        console.log(_this2.deleteModalWidth);
+      });
     }
   },
   computed: {
     showDeleteModal: function showDeleteModal() {
-      return !this.closeDeleteModal && this.selectedWordForModal.length !== 0;
+      return !this.deleteModalStatus && this.selectedWordForModal.length !== 0;
     },
     getSelectedWord: function getSelectedWord() {
       var word = this.selectedWordForModal[this.getSelectedWordIndex];
@@ -37785,7 +37798,6 @@ var render = function() {
             ? _c(
                 "div",
                 {
-                  ref: "modal",
                   staticClass: "delete-warning",
                   on: {
                     click: function($event) {
@@ -37797,57 +37809,67 @@ var render = function() {
                   }
                 },
                 [
-                  _c("div", { staticClass: "delete-modal" }, [
-                    _c("h1", [
-                      _vm._v(
-                        "Delete " + _vm._s(_vm.getSelectedWord.toUpperCase())
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("ul", { staticClass: "delete-confirmation" }, [
-                      _c("li", [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "#" },
-                            on: {
-                              "~click": function($event) {
-                                $event.preventDefault()
-                                _vm.deleteWord(
-                                  _vm.getSelectedWordIndex,
-                                  _vm.getSelectedWord.charAt(0)
-                                )
-                              }
-                            }
-                          },
-                          [_vm._v("Yes")]
+                  _c(
+                    "div",
+                    {
+                      ref: "deleteModal",
+                      staticClass: "delete-modal",
+                      style: {
+                        "margin-left": "-" + _vm.deleteModalWidth / 2 + "px"
+                      }
+                    },
+                    [
+                      _c("h1", [
+                        _vm._v(
+                          "Delete " + _vm._s(_vm.getSelectedWord.toUpperCase())
                         )
                       ]),
                       _vm._v(" "),
-                      _c("li", [
-                        _c(
-                          "a",
-                          {
-                            attrs: { href: "#" },
-                            on: {
-                              click: function($event) {
-                                $event.preventDefault()
-                                return _vm.closeModal()
+                      _c("ul", { staticClass: "delete-confirmation" }, [
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                "~click": function($event) {
+                                  $event.preventDefault()
+                                  _vm.deleteWord(
+                                    _vm.getSelectedWordIndex,
+                                    _vm.getSelectedWord.charAt(0)
+                                  )
+                                }
                               }
-                            }
-                          },
-                          [_vm._v("No")]
-                        )
+                            },
+                            [_vm._v("Yes")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("li", [
+                          _c(
+                            "a",
+                            {
+                              attrs: { href: "#" },
+                              on: {
+                                click: function($event) {
+                                  $event.preventDefault()
+                                  return _vm.closeModal()
+                                }
+                              }
+                            },
+                            [_vm._v("No")]
+                          )
+                        ])
                       ])
-                    ])
-                  ])
+                    ]
+                  )
                 ]
               )
             : _vm._e()
         ],
         2
       )
-    : _c("div", [_vm._v("Empty")])
+    : _c("div", [_vm._v("No words exist")])
 }
 var staticRenderFns = []
 render._withStripped = true

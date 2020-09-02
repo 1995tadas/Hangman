@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Vue ExpandWordsComponent">
-      <change afterPath="$PROJECT_DIR$/database/seeds/WordSeeder.php" afterDir="false" />
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Word delete functionality">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/WordFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/WordFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_08_27_104709_create_words_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_08_27_104709_create_words_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/ExpandWordsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/ExpandWordsComponent.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/_word.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_word.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/words/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/words/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/WordTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/WordTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,15 +149,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xamp\htdocs\hangman\resources\sass" />
+      <recent name="C:\xamp\htdocs\hangman\resources\views\words" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xamp\htdocs\hangman\resources\views" />
       <recent name="C:\xamp\htdocs\hangman\database" />
       <recent name="C:\xamp\htdocs\hangman\storage" />
       <recent name="C:\xamp\htdocs\hangman\resources\views\layout" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xamp\htdocs\hangman\resources\sass" />
-      <recent name="C:\xamp\htdocs\hangman\resources\views\words" />
     </key>
   </component>
   <component name="RunManager">
@@ -190,7 +182,8 @@
       <workItem from="1598629922605" duration="25702000" />
       <workItem from="1598696748469" duration="19747000" />
       <workItem from="1598718668373" duration="6041000" />
-      <workItem from="1598778015671" duration="16952000" />
+      <workItem from="1598778015671" duration="17573000" />
+      <workItem from="1599052639945" duration="11585000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -216,7 +209,13 @@
       <option name="presentableId" value="LOCAL−00004" />
       <updated>1598697002560</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL−00005" summary="Word delete functionality">
+      <created>1598817008955</created>
+      <option name="number" value="LOCAL−00005" />
+      <option name="presentableId" value="LOCAL−00005" />
+      <updated>1598817008955</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,7 +228,8 @@
     <MESSAGE value="Words update &amp; form scss" />
     <MESSAGE value="Vue init &amp; index admin filtering component" />
     <MESSAGE value="Vue ExpandWordsComponent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Vue ExpandWordsComponent" />
+    <MESSAGE value="Word delete functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Word delete functionality" />
   </component>
   <component name="WindowStateProjectService">
     <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598552895805">
@@ -248,18 +248,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1598527993100" />
-    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1598697159149">
+    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1599077258233">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1598697159149" />
+    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1599077258233" />
     <state x="150" y="66" key="DiffContextDialog" timestamp="1598645497086">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="150" y="66" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1598645497086" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1598697074140">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1598817025608">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598697074140" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1598817025608" />
     <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1598662521002">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -268,9 +268,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1598662494404" />
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1598698001128">
+    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1599072512642">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1598698001128" />
+    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1599072512642" />
   </component>
 </project>

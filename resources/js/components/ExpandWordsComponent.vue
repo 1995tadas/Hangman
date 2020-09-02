@@ -20,8 +20,8 @@
                 </span>
             </div>
         </div>
-        <div @click.self="closeModal()" v-if="showDeleteModal" ref="modal" class="delete-warning">
-            <div class="delete-modal">
+        <div @click.self="closeModal()" v-if="showDeleteModal" class="delete-warning">
+            <div class="delete-modal" ref="deleteModal" :style="{'margin-left': '-'+ deleteModalWidth/2 + 'px'}">
                 <h1>Delete {{ getSelectedWord.toUpperCase() }}</h1>
                 <ul class="delete-confirmation">
                     <li>
@@ -35,7 +35,7 @@
             </div>
         </div>
     </div>
-    <div v-else>Empty</div>
+    <div v-else>No words exist</div>
 </template>
 <script>
 export default {
@@ -59,9 +59,10 @@ export default {
             showWords: [],
             showAll: true,
             selectedWordForModal: [],
-            closeDeleteModal: false,
+            deleteModalStatus: false,
             readyToDelete: true,
-            empty: false
+            empty: false,
+            deleteModalWidth: 400
         }
     },
     created() {
@@ -109,6 +110,9 @@ export default {
             this.showAll = !this.showAll;
             this.showWords = [];
         },
+
+        //delete Modal methods
+
         instantiateDeleteModal(index, letter) {
             this.selectedWordForModal = [];
             this.openModal();
@@ -121,7 +125,7 @@ export default {
                     if (response.data) {
                         delete this.formattedWords[letter][index];
                         this.checkIfWordsExist();
-                        this.closeDeleteModal = true
+                        this.closeModal();
                     }
                 }
             ).catch((error) => {
@@ -131,16 +135,25 @@ export default {
                 }
             )
         },
-        closeModal() {
-            this.closeDeleteModal = true
-        },
         openModal() {
-            this.closeDeleteModal = false;
+            document.body.classList.add("no-scroll");
+            this.deleteModalStatus = false;
+            this.getDeleteModalWidth();
         },
+        closeModal() {
+            document.body.classList.remove("no-scroll");
+            this.deleteModalStatus = true
+        },
+        getDeleteModalWidth() {
+            this.$nextTick(() => {
+                this.deleteModalWidth = this.$refs.deleteModal.getBoundingClientRect().width;
+                console.log(this.deleteModalWidth);
+            });
+        }
     },
     computed: {
         showDeleteModal() {
-            return !this.closeDeleteModal && this.selectedWordForModal.length !== 0;
+            return !this.deleteModalStatus && this.selectedWordForModal.length !== 0;
         },
         getSelectedWord() {
             let word = this.selectedWordForModal[this.getSelectedWordIndex];

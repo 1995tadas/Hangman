@@ -10986,6 +10986,7 @@ html,
   font-size: 20pt;
   color: #AC3B61;
   padding-left: 50px;
+  word-break: break-all;
 }
 
 .words .delete-warning {
@@ -11003,14 +11004,18 @@ html,
   top: 50%;
   left: 50%;
   margin-top: -50px;
-  margin-left: -200px;
-  min-width: 400px;
   border: 1px solid #000;
   border-radius: 5px;
   background-color: #fff;
   box-sizing: border-box;
   text-align: center;
   padding: 20px;
+}
+
+@media (max-width: 480px) {
+  .words .delete-warning .delete-modal {
+    width: 100%;
+  }
 }
 
 .words .delete-warning .delete-modal h1 {
@@ -11025,12 +11030,17 @@ html,
 
 .words .delete-warning .delete-modal .delete-confirmation li {
   display: inline;
-  border: 1px dotted black;
-  padding: 5px;
+  border: 1px dashed black;
+  padding: 5px 10px;
+  background-color: #ffe8de;
 }
 
 .words .delete-warning .delete-modal .delete-confirmation li:last-child {
   margin-left: 20px;
+}
+
+.no-scroll {
+  overflow-y: hidden;
 }
 
 .form-container {
