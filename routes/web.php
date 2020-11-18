@@ -24,3 +24,7 @@ Route::prefix('words')->name('words.')->group(function () {
     Route::delete('{word}', 'WordController@destroy')->where('id', '[0-9]+')->name('destroy');
 });
 
+Route::prefix('games')->name('games.')->group(function () {
+    Route::get('play', 'GameController@play')->name('play');
+});
+

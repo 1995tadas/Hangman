@@ -1,0 +1,70 @@
+:root {
+    --input-items-size: 70px;
+}
+
+.play-center {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+
+    .play-grid {
+        display: grid;
+        grid-template-rows: 1fr;
+        gap: 1px;
+
+        .play-cell {
+            height: 50px;
+            width: 50px;
+            caret-color: transparent;
+            line-height: 1;
+        }
+    }
+
+    .input-block {
+        text-align: center;
+
+        .input-cell {
+            margin: 20px auto 0;
+            height: var(--input-items-size);
+            width: var(--input-items-size);
+            display: block;
+        }
+
+        .game-button {
+            width: var(--input-items-size);
+        }
+    }
+
+    .input-cell, .play-cell {
+        text-align: center;
+        border: 3px solid black;
+        font-size: 30pt;
+        text-transform: uppercase;
+    }
+
+    .guessed-letters {
+        color: #c51b1f;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        list-style: none;
+        text-transform: capitalize;
+        font-size: 20pt;
+
+        li {
+            margin-right: 5px;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .letter-placeholder {
+            margin-right: 0;
+            color: transparent;
+        }
+    }
+}
+

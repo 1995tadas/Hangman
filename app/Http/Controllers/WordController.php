@@ -19,7 +19,6 @@ class WordController extends Controller
         $wordService = new WordService();
         $word = Word::create([
             'word' => strtolower($request->word),
-            'length' => $wordService->wordLength($request->word)
         ]);
         return $wordService->redirectOrFail($word, 'words.index');
     }
@@ -35,7 +34,6 @@ class WordController extends Controller
         $wordModel = new Word;
         $word = $wordModel->findOrFail($id)->update([
             'word' => strtolower($request->word),
-            'length' => $wordService->wordLength($request->word)
         ]);
         return $wordService->redirectOrFail($word, 'words.index');
     }

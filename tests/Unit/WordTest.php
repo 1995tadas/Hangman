@@ -5,7 +5,6 @@ namespace Tests\Unit;
 use App\Word;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Tests\TestCase;
 
 class WordTest extends TestCase

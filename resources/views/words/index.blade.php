@@ -6,8 +6,10 @@
                 <i class="far fa-plus-square"></i>
             </a>
             @if(!$words->isEmpty())
-                <expand-words-component :words="{{$words}}" edit-route="{{route('words.edit',['word' =>'/'])}}"
-                                        delete-route="{{route('words.destroy',['word' => '/'])}}">
+                <expand-words-component
+                    :words="{{$words}}"
+                    edit-route="{{route('words.edit',['word' =>'/'])}}"
+                    delete-route="{{route('words.destroy',['word' => '/'])}}">
                 </expand-words-component>
             @else
                 <div>Empty</div>

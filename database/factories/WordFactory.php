@@ -9,6 +9,5 @@ $factory->define(Word::class, function (Faker $faker) {
     $word = $faker->unique()->word;
     return [
         'word' => $word,
-        'length' => strlen($word)
     ];
 });
