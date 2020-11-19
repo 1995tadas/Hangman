@@ -11084,10 +11084,33 @@ html,
   align-items: center;
 }
 
+.play-center .hangman-board {
+  margin: 0 auto;
+  height: 300px;
+  width: 450px;
+  padding: 10px 0;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 768px) {
+  .play-center .hangman-board {
+    max-width: 100%;
+    width: 250px;
+    height: 180px;
+  }
+}
+
+.play-center .hangman-board #hangman-canvas {
+  height: 100%;
+  width: 100%;
+  background-color: #0b0b0b;
+  border: #efefef;
+  text-align: center;
+}
+
 .play-center .play-grid {
-  display: grid;
-  grid-template-rows: 1fr;
-  gap: 1px;
+  display: flex;
+  justify-content: center;
 }
 
 .play-center .play-grid .play-cell {
@@ -11095,6 +11118,11 @@ html,
   width: 50px;
   caret-color: transparent;
   line-height: 1;
+  margin-left: 5px;
+}
+
+.play-center .play-grid .play-cell:first-child {
+  margin-left: 0;
 }
 
 .play-center .input-block {

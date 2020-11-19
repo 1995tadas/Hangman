@@ -9,16 +9,41 @@
     flex-direction: column;
     align-items: center;
 
+    .hangman-board {
+        margin: 0 auto;
+        height: 300px;
+        width: 450px;
+        padding: 10px 0;
+        box-sizing: border-box;
+        @media only screen and (max-width: 768px) {
+            max-width: 100%;
+            width: 250px;
+            height: 180px;
+        }
+
+        #hangman-canvas {
+            height: 100%;
+            width: 100%;
+            background-color: #0b0b0b;
+            border: #efefef;
+            text-align: center;
+        }
+    }
+
     .play-grid {
-        display: grid;
-        grid-template-rows: 1fr;
-        gap: 1px;
+        display: flex;
+        justify-content: center;
 
         .play-cell {
             height: 50px;
             width: 50px;
             caret-color: transparent;
             line-height: 1;
+            margin-left: 5px;
+
+            &:first-child {
+                margin-left: 0;
+            }
         }
     }
 

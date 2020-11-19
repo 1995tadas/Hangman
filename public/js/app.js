@@ -2141,6 +2141,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     word: {
@@ -2155,17 +2158,79 @@ __webpack_require__.r(__webpack_exports__);
       guessedLetters: []
     };
   },
-  created: function created() {
-    console.log(this.word);
+  mounted: function mounted() {
+    this.paintHangman();
   },
   methods: {
+    guess: function guess() {
+      var _this = this;
+
+      var letter = this.addLetter();
+
+      if (letter) {
+        var wrongGuesses = this.guessedLetters.filter(function (x) {
+          return !_this.word.includes(x);
+        }).length;
+        this.paintHangman(wrongGuesses);
+      }
+    },
     addLetter: function addLetter() {
-      if (this.letter && !this.guessedLetters.includes(this.letter)) {
+      if (this.letter && !this.letterIsGuessed(this.letter)) {
         this.guessedLetters.push(this.letter[0]);
         this.letter = '';
+        return true;
       }
 
-      console.log(this.guessedLetters);
+      return false;
+    },
+    letterIsGuessed: function letterIsGuessed(letter) {
+      return this.guessedLetters.includes(letter);
+    },
+    paintHangman: function paintHangman() {
+      var wrong = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var canvas = document.getElementById('hangman-canvas');
+      var ctx = canvas.getContext('2d');
+      var x = 60;
+      var y = 140;
+      ctx.strokeStyle = '#fff';
+      ctx.lineWidth = 3;
+      ctx.moveTo(x, y);
+      ctx.lineTo(x += 100, y);
+      ctx.moveTo(x -= 50, y);
+      ctx.lineTo(x, y -= 110);
+      ctx.lineTo(x += 130, y);
+      ctx.lineTo(x, y += 20);
+
+      if (wrong >= 1) {
+        ctx.arc(x, y += 10, 10, 1.5 * Math.PI, 3.5 * Math.PI);
+
+        if (wrong >= 2) {
+          ctx.moveTo(x, y += 10);
+          ctx.lineTo(x, y += 40);
+
+          if (wrong >= 3) {
+            ctx.moveTo(x, y -= 32);
+            ctx.lineTo(x -= 30, y -= 13);
+
+            if (wrong >= 4) {
+              ctx.moveTo(x += 30, y += 13);
+              ctx.lineTo(x += 30, y -= 13);
+
+              if (wrong >= 5) {
+                ctx.moveTo(x -= 30, y += 44);
+                ctx.lineTo(x -= 20, y += 26);
+
+                if (wrong >= 6) {
+                  ctx.moveTo(x += 20, y -= 26);
+                  ctx.lineTo(x += 20, y += 26);
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ctx.stroke();
     }
   }
 });
@@ -37966,20 +38031,17 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "play-center" }, [
     _c("div", [
+      _vm._m(0),
+      _vm._v(" "),
       _c(
         "div",
-        {
-          staticClass: "play-grid",
-          style: {
-            "grid-template-columns": "repeat(" + _vm.wordLength + ", 1fr)"
-          }
-        },
+        { staticClass: "play-grid" },
         _vm._l(_vm.wordLength, function(n) {
           return _c(
             "div",
             { staticClass: "play-cell" },
             [
-              _vm.guessedLetters.includes(_vm.word[n - 1])
+              _vm.letterIsGuessed(_vm.word[n - 1])
                 ? [
                     _vm._v(
                       "\n                    " +
@@ -38016,7 +38078,7 @@ var render = function() {
               ) {
                 return null
               }
-              return _vm.addLetter($event)
+              return _vm.guess($event)
             },
             input: function($event) {
               if ($event.target.composing) {
@@ -38037,7 +38099,7 @@ var render = function() {
           on: {
             click: function($event) {
               $event.preventDefault()
-              return _vm.addLetter($event)
+              return _vm.guess($event)
             }
           }
         })
@@ -38058,7 +38120,16 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "hangman-board" }, [
+      _c("canvas", { attrs: { id: "hangman-canvas" } })
+    ])
+  }
+]
 render._withStripped = true
 
 
