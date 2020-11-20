@@ -4,7 +4,7 @@
             <div class="hangman-board">
                 <canvas id="hangman-canvas"></canvas>
             </div>
-            <div class="play-grid">
+            <div v-show="!loser && !winner" class="play-grid">
                 <div v-for="n in letterCount" class="play-cell">
                     <template v-if="letterIsGuessed(letters[n-1])">
                         {{ letters[n - 1] }}
@@ -15,24 +15,29 @@
                 <template v-if="!loser && !winner">
                     <input type="text" class="input-cell" maxlength="1" v-model="letter" autofocus
                            @keydown.enter="guess">
-                    <input type="button" class="game-button" value="Guess" @click.prevent="guess"
+                    <input type="button" class="game-button" value="Spėk!" @click.prevent="guess"
                            :disabled="letter === ''">
                 </template>
                 <div class="result" v-else>
-                    <span v-if="loser">LOST!</span>
-                    <span v-if="winner">WON!</span>
-                    <span>Correct answer was
+                    <span v-if="loser">Pralaimėjai!</span>
+                    <span v-if="winner">Laimėjai!</span>
+                    <span>Teisingas atsakymas buvo
                         <span class="correct-answer">
                             <template v-for="letter in letters">{{ letter }}</template>
                         </span>
                     </span>
+                    <a href="">
+                        <button class="replay-btn">Iš naujo!</button>
+                    </a>
                 </div>
             </div>
         </div>
-        <ul class="guessed-letters">
-            <li class="letter-placeholder">|</li>
-            <li v-for="n in guessedLetters">{{ n }}</li>
-        </ul>
+        <div class="guessed-letters">
+            <span class="guessed-notation">Spėjimai:</span>
+            <ul>
+                <li v-for="n in guessedLetters">{{ n }}</li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>

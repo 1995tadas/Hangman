@@ -11177,6 +11177,16 @@ html,
   padding: 0 5px;
 }
 
+.play-center .input-block .result .replay-btn {
+  background-color: #eec4af;
+  border-radius: 5px;
+  border: 3px solid #ef6e2e;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
 .play-center .input-cell,
 .play-center .play-cell {
   text-align: center;
@@ -11185,7 +11195,7 @@ html,
   text-transform: uppercase;
 }
 
-.play-center .guessed-letters {
+.play-center .guessed-letters ul {
   color: #c51b1f;
   margin: 0;
   padding: 0;
@@ -11195,16 +11205,18 @@ html,
   font-size: 25pt;
 }
 
-.play-center .guessed-letters li {
+.play-center .guessed-letters ul li {
   margin-right: 5px;
 }
 
-.play-center .guessed-letters li:last-child {
+.play-center .guessed-letters ul li:last-child {
   margin-right: 0;
 }
 
-.play-center .guessed-letters .letter-placeholder {
-  margin-right: 0;
-  color: transparent;
+.play-center .guessed-letters .guessed-notation {
+  font-size: 20pt;
+  text-align: center;
+  display: block;
+  color: black;
 }
 

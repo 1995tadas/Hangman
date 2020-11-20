@@ -2155,6 +2155,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     letters: {
@@ -38068,7 +38073,17 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "play-grid" },
+        {
+          directives: [
+            {
+              name: "show",
+              rawName: "v-show",
+              value: !_vm.loser && !_vm.winner,
+              expression: "!loser && !winner"
+            }
+          ],
+          staticClass: "play-grid"
+        },
         _vm._l(_vm.letterCount, function(n) {
           return _c(
             "div",
@@ -38131,7 +38146,7 @@ var render = function() {
                   staticClass: "game-button",
                   attrs: {
                     type: "button",
-                    value: "Guess",
+                    value: "Spėk!",
                     disabled: _vm.letter === ""
                   },
                   on: {
@@ -38143,12 +38158,12 @@ var render = function() {
                 })
               ]
             : _c("div", { staticClass: "result" }, [
-                _vm.loser ? _c("span", [_vm._v("LOST!")]) : _vm._e(),
+                _vm.loser ? _c("span", [_vm._v("Pralaimėjai!")]) : _vm._e(),
                 _vm._v(" "),
-                _vm.winner ? _c("span", [_vm._v("WON!")]) : _vm._e(),
+                _vm.winner ? _c("span", [_vm._v("Laimėjai!")]) : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
-                  _vm._v("Correct answer was\n                    "),
+                  _vm._v("Teisingas atsakymas buvo\n                    "),
                   _c(
                     "span",
                     { staticClass: "correct-answer" },
@@ -38159,25 +38174,26 @@ var render = function() {
                     ],
                     2
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
               ])
         ],
         2
       )
     ]),
     _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "guessed-letters" },
-      [
-        _c("li", { staticClass: "letter-placeholder" }, [_vm._v("|")]),
-        _vm._v(" "),
+    _c("div", { staticClass: "guessed-letters" }, [
+      _c("span", { staticClass: "guessed-notation" }, [_vm._v("Spėjimai:")]),
+      _vm._v(" "),
+      _c(
+        "ul",
         _vm._l(_vm.guessedLetters, function(n) {
           return _c("li", [_vm._v(_vm._s(n))])
-        })
-      ],
-      2
-    )
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -38187,6 +38203,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "hangman-board" }, [
       _c("canvas", { attrs: { id: "hangman-canvas" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "" } }, [
+      _c("button", { staticClass: "replay-btn" }, [_vm._v("Iš naujo!")])
     ])
   }
 ]

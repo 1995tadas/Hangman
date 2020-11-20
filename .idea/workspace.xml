@@ -6,9 +6,7 @@
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/_play.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_play.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/games/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/games/play.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +195,7 @@
       <workItem from="1603107538012" duration="345000" />
       <workItem from="1605703976733" duration="4741000" />
       <workItem from="1605799926713" duration="11200000" />
-      <workItem from="1605868870812" duration="8171000" />
+      <workItem from="1605868870812" duration="14267000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -247,7 +245,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1605819858084</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="Game results added">
+      <created>1605881294080</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1605881294080</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +268,8 @@
     <MESSAGE value="Delete model scroll &amp; alignment fix" />
     <MESSAGE value="Gameplay mode created" />
     <MESSAGE value="Hangman canvas board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hangman canvas board" />
+    <MESSAGE value="Game results added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game results added" />
   </component>
   <component name="WindowStateProjectService">
     <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598552895805">
@@ -283,10 +288,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1598527993100" />
-    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1605819853888">
+    <state x="-133" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1605881289130">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="-16" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1605819853888" />
+    <state x="-133" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1605881289130" />
     <state x="150" y="66" key="DiffContextDialog" timestamp="1598645497086">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -307,21 +312,21 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1605880642283" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605819864693">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605881300399">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605819864693" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605881300399" />
     <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1598662521002">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1598662521002" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1605874374053">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1605894516290">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605874374053" />
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1602869312869">
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605894516290" />
+    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1605888778463">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1602869312869" />
+    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1605888778463" />
   </component>
 </project>

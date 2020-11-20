@@ -90,6 +90,16 @@
                 padding: 0 5px;
             }
         }
+
+        .result .replay-btn {
+            background-color: #eec4af;
+            border-radius: 5px;
+            border: 3px solid #ef6e2e;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin: 5px 0;
+        }
     }
 
     .input-cell, .play-cell {
@@ -100,25 +110,29 @@
     }
 
     .guessed-letters {
-        color: #c51b1f;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        list-style: none;
-        text-transform: capitalize;
-        font-size: 25pt;
+        ul {
+            color: #c51b1f;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            list-style: none;
+            text-transform: capitalize;
+            font-size: 25pt;
 
-        li {
-            margin-right: 5px;
+            li {
+                margin-right: 5px;
 
-            &:last-child {
-                margin-right: 0;
+                &:last-child {
+                    margin-right: 0;
+                }
             }
         }
 
-        .letter-placeholder {
-            margin-right: 0;
-            color: transparent;
+        .guessed-notation {
+            font-size: 20pt;
+            text-align: center;
+            display: block;
+            color: black;
         }
     }
 }
