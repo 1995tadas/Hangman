@@ -5,17 +5,28 @@
                 <canvas id="hangman-canvas"></canvas>
             </div>
             <div class="play-grid">
-                <div v-for="n in wordLength" class="play-cell">
-                    <template v-if="letterIsGuessed(word[n-1])">
-                        {{ word[n - 1] }}
+                <div v-for="n in letterCount" class="play-cell">
+                    <template v-if="letterIsGuessed(letters[n-1])">
+                        {{ letters[n - 1] }}
                     </template>
                 </div>
             </div>
             <div class="input-block">
-                <input type="text" class="input-cell" maxlength="1" v-model="letter" autofocus
-                       @keydown.enter="guess">
-                <input type="button" class="game-button" value="Guess" @click.prevent="guess"
-                       :disabled="letter === ''">
+                <template v-if="!loser && !winner">
+                    <input type="text" class="input-cell" maxlength="1" v-model="letter" autofocus
+                           @keydown.enter="guess">
+                    <input type="button" class="game-button" value="Guess" @click.prevent="guess"
+                           :disabled="letter === ''">
+                </template>
+                <div class="result" v-else>
+                    <span v-if="loser">LOST!</span>
+                    <span v-if="winner">WON!</span>
+                    <span>Correct answer was
+                        <span class="correct-answer">
+                            <template v-for="letter in letters">{{ letter }}</template>
+                        </span>
+                    </span>
+                </div>
             </div>
         </div>
         <ul class="guessed-letters">
@@ -27,7 +38,7 @@
 <script>
 export default {
     props: {
-        word: {
+        letters: {
             type: Array,
             required: true
         }
@@ -35,8 +46,10 @@ export default {
     data() {
         return {
             letter: '',
-            wordLength: this.word.length,
-            guessedLetters: []
+            letterCount: this.letters.length,
+            guessedLetters: [],
+            loser: false,
+            winner: false
         }
     },
     mounted() {
@@ -46,14 +59,27 @@ export default {
         guess() {
             let letter = this.addLetter();
             if (letter) {
-                let wrongGuesses = this.guessedLetters.filter(x => !this.word.includes(x)).length;
+                let wrongGuesses = this.guessedLetters.filter(x => !this.letters.includes(x)).length;
                 this.paintHangman(wrongGuesses);
             }
+        },
+        loss() {
+            this.loser = true;
+        },
+        won() {
+            let uniqueLetters = [];
+            for (let i = 0; i < this.letterCount; i++) {
+                if (!uniqueLetters.includes(this.letters[i])) {
+                    uniqueLetters.push(this.letters[i])
+                }
+            }
+            this.winner = this.guessedLetters.filter(x => this.letters.includes(x)).length === uniqueLetters.length;
         },
         addLetter() {
             if (this.letter && !this.letterIsGuessed(this.letter)) {
                 this.guessedLetters.push(this.letter[0]);
                 this.letter = '';
+                this.won();
                 return true;
             }
 
@@ -92,6 +118,7 @@ export default {
                                 if (wrong >= 6) {
                                     ctx.moveTo(x += 20, y -= 26);
                                     ctx.lineTo(x += 20, y += 26);
+                                    this.loss();
                                 }
                             }
                         }

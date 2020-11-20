@@ -2144,9 +2144,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    word: {
+    letters: {
       type: Array,
       required: true
     }
@@ -2154,8 +2165,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       letter: '',
-      wordLength: this.word.length,
-      guessedLetters: []
+      letterCount: this.letters.length,
+      guessedLetters: [],
+      loser: false,
+      winner: false
     };
   },
   mounted: function mounted() {
@@ -2169,15 +2182,34 @@ __webpack_require__.r(__webpack_exports__);
 
       if (letter) {
         var wrongGuesses = this.guessedLetters.filter(function (x) {
-          return !_this.word.includes(x);
+          return !_this.letters.includes(x);
         }).length;
         this.paintHangman(wrongGuesses);
       }
+    },
+    loss: function loss() {
+      this.loser = true;
+    },
+    won: function won() {
+      var _this2 = this;
+
+      var uniqueLetters = [];
+
+      for (var i = 0; i < this.letterCount; i++) {
+        if (!uniqueLetters.includes(this.letters[i])) {
+          uniqueLetters.push(this.letters[i]);
+        }
+      }
+
+      this.winner = this.guessedLetters.filter(function (x) {
+        return _this2.letters.includes(x);
+      }).length === uniqueLetters.length;
     },
     addLetter: function addLetter() {
       if (this.letter && !this.letterIsGuessed(this.letter)) {
         this.guessedLetters.push(this.letter[0]);
         this.letter = '';
+        this.won();
         return true;
       }
 
@@ -2223,6 +2255,7 @@ __webpack_require__.r(__webpack_exports__);
                 if (wrong >= 6) {
                   ctx.moveTo(x += 20, y -= 26);
                   ctx.lineTo(x += 20, y += 26);
+                  this.loss();
                 }
               }
             }
@@ -38036,16 +38069,16 @@ var render = function() {
       _c(
         "div",
         { staticClass: "play-grid" },
-        _vm._l(_vm.wordLength, function(n) {
+        _vm._l(_vm.letterCount, function(n) {
           return _c(
             "div",
             { staticClass: "play-cell" },
             [
-              _vm.letterIsGuessed(_vm.word[n - 1])
+              _vm.letterIsGuessed(_vm.letters[n - 1])
                 ? [
                     _vm._v(
                       "\n                    " +
-                        _vm._s(_vm.word[n - 1]) +
+                        _vm._s(_vm.letters[n - 1]) +
                         "\n                "
                     )
                   ]
@@ -38057,53 +38090,80 @@ var render = function() {
         0
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "input-block" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.letter,
-              expression: "letter"
-            }
-          ],
-          staticClass: "input-cell",
-          attrs: { type: "text", maxlength: "1", autofocus: "" },
-          domProps: { value: _vm.letter },
-          on: {
-            keydown: function($event) {
-              if (
-                !$event.type.indexOf("key") &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              return _vm.guess($event)
-            },
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.letter = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("input", {
-          staticClass: "game-button",
-          attrs: {
-            type: "button",
-            value: "Guess",
-            disabled: _vm.letter === ""
-          },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.guess($event)
-            }
-          }
-        })
-      ])
+      _c(
+        "div",
+        { staticClass: "input-block" },
+        [
+          !_vm.loser && !_vm.winner
+            ? [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.letter,
+                      expression: "letter"
+                    }
+                  ],
+                  staticClass: "input-cell",
+                  attrs: { type: "text", maxlength: "1", autofocus: "" },
+                  domProps: { value: _vm.letter },
+                  on: {
+                    keydown: function($event) {
+                      if (
+                        !$event.type.indexOf("key") &&
+                        _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+                      ) {
+                        return null
+                      }
+                      return _vm.guess($event)
+                    },
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.letter = $event.target.value
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  staticClass: "game-button",
+                  attrs: {
+                    type: "button",
+                    value: "Guess",
+                    disabled: _vm.letter === ""
+                  },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.guess($event)
+                    }
+                  }
+                })
+              ]
+            : _c("div", { staticClass: "result" }, [
+                _vm.loser ? _c("span", [_vm._v("LOST!")]) : _vm._e(),
+                _vm._v(" "),
+                _vm.winner ? _c("span", [_vm._v("WON!")]) : _vm._e(),
+                _vm._v(" "),
+                _c("span", [
+                  _vm._v("Correct answer was\n                    "),
+                  _c(
+                    "span",
+                    { staticClass: "correct-answer" },
+                    [
+                      _vm._l(_vm.letters, function(letter) {
+                        return [_vm._v(_vm._s(letter))]
+                      })
+                    ],
+                    2
+                  )
+                ])
+              ])
+        ],
+        2
+      )
     ]),
     _vm._v(" "),
     _c(
