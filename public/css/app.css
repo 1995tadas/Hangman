@@ -11205,6 +11205,11 @@ html,
   font-size: 25pt;
 }
 
+.play-center .guessed-letters ul .guessed-letters-placeholder {
+  visibility: hidden;
+  margin: 0;
+}
+
 .play-center .guessed-letters ul li {
   margin-right: 5px;
 }

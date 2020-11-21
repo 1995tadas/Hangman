@@ -195,7 +195,8 @@
       <workItem from="1603107538012" duration="345000" />
       <workItem from="1605703976733" duration="4741000" />
       <workItem from="1605799926713" duration="11200000" />
-      <workItem from="1605868870812" duration="14267000" />
+      <workItem from="1605868870812" duration="14589000" />
+      <workItem from="1605973414943" duration="6735000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -251,7 +252,13 @@
       <option name="presentableId" value="LOCAL−00009" />
       <updated>1605881294080</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL−00010" summary="Replay button">
+      <created>1605895437641</created>
+      <option name="number" value="LOCAL−00010" />
+      <option name="presentableId" value="LOCAL−00010" />
+      <updated>1605895437641</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +276,8 @@
     <MESSAGE value="Gameplay mode created" />
     <MESSAGE value="Hangman canvas board" />
     <MESSAGE value="Game results added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game results added" />
+    <MESSAGE value="Replay button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Replay button" />
   </component>
   <component name="WindowStateProjectService">
     <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598552895805">
@@ -288,10 +296,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1598527993100" />
-    <state x="-133" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1605881289130">
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1605895433564">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="-133" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1605881289130" />
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1605895433564" />
     <state x="150" y="66" key="DiffContextDialog" timestamp="1598645497086">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -312,18 +320,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1605880642283" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605881300399">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605895442298">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605881300399" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605895442298" />
     <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1598662521002">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1598662521002" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1605894516290">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1605975818026">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605894516290" />
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605975818026" />
     <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1605888778463">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -2160,6 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     letters: {
@@ -2173,7 +2174,8 @@ __webpack_require__.r(__webpack_exports__);
       letterCount: this.letters.length,
       guessedLetters: [],
       loser: false,
-      winner: false
+      winner: false,
+      letterRegex: '^[A-Za-zĄąČčĘęĖėĮįŠšŲųŪūŽž]$'
     };
   },
   mounted: function mounted() {
@@ -2210,8 +2212,13 @@ __webpack_require__.r(__webpack_exports__);
         return _this2.letters.includes(x);
       }).length === uniqueLetters.length;
     },
+    validateLetter: function validateLetter() {
+      this.letter = this.letter.toLowerCase();
+      var regex = new RegExp(this.letterRegex);
+      return regex.test(this.letter) && !this.letterIsGuessed(this.letter);
+    },
     addLetter: function addLetter() {
-      if (this.letter && !this.letterIsGuessed(this.letter)) {
+      if (this.validateLetter()) {
         this.guessedLetters.push(this.letter[0]);
         this.letter = '';
         this.won();
@@ -38121,7 +38128,13 @@ var render = function() {
                     }
                   ],
                   staticClass: "input-cell",
-                  attrs: { type: "text", maxlength: "1", autofocus: "" },
+                  attrs: {
+                    type: "text",
+                    maxlength: "1",
+                    autofocus: "",
+                    required: "",
+                    pattern: _vm.letterRegex
+                  },
                   domProps: { value: _vm.letter },
                   on: {
                     keydown: function($event) {
@@ -38188,10 +38201,16 @@ var render = function() {
       _vm._v(" "),
       _c(
         "ul",
-        _vm._l(_vm.guessedLetters, function(n) {
-          return _c("li", [_vm._v(_vm._s(n))])
-        }),
-        0
+        [
+          _c("li", { staticClass: "guessed-letters-placeholder" }, [
+            _vm._v("|")
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.guessedLetters, function(n) {
+            return _c("li", [_vm._v(_vm._s(n))])
+          })
+        ],
+        2
       )
     ])
   ])

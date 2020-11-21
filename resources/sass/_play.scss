@@ -119,6 +119,11 @@
             text-transform: capitalize;
             font-size: 25pt;
 
+            .guessed-letters-placeholder {
+                visibility: hidden;
+                margin: 0;
+            }
+
             li {
                 margin-right: 5px;
 

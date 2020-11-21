@@ -13,8 +13,8 @@
             </div>
             <div class="input-block">
                 <template v-if="!loser && !winner">
-                    <input type="text" class="input-cell" maxlength="1" v-model="letter" autofocus
-                           @keydown.enter="guess">
+                    <input type="text" class="input-cell" maxlength="1" autofocus required
+                           :pattern="letterRegex" v-model="letter" @keydown.enter="guess">
                     <input type="button" class="game-button" value="Spėk!" @click.prevent="guess"
                            :disabled="letter === ''">
                 </template>
@@ -35,6 +35,7 @@
         <div class="guessed-letters">
             <span class="guessed-notation">Spėjimai:</span>
             <ul>
+                <li class="guessed-letters-placeholder">|</li>
                 <li v-for="n in guessedLetters">{{ n }}</li>
             </ul>
         </div>
@@ -54,7 +55,8 @@ export default {
             letterCount: this.letters.length,
             guessedLetters: [],
             loser: false,
-            winner: false
+            winner: false,
+            letterRegex: '^[A-Za-zĄąČčĘęĖėĮįŠšŲųŪūŽž]$'
         }
     },
     mounted() {
@@ -80,8 +82,13 @@ export default {
             }
             this.winner = this.guessedLetters.filter(x => this.letters.includes(x)).length === uniqueLetters.length;
         },
+        validateLetter() {
+            this.letter = this.letter.toLowerCase();
+            let regex = new RegExp(this.letterRegex);
+            return regex.test(this.letter) && !this.letterIsGuessed(this.letter);
+        },
         addLetter() {
-            if (this.letter && !this.letterIsGuessed(this.letter)) {
+            if (this.validateLetter()) {
                 this.guessedLetters.push(this.letter[0]);
                 this.letter = '';
                 this.won();
