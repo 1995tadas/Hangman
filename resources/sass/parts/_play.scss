@@ -44,7 +44,7 @@
             caret-color: transparent;
             line-height: 1;
             margin-left: 5px;
-            background: #eec4af;
+            background: var(--second-color);
             @media only screen and (max-width: 576px) {
                 height: 40px;
                 width: 40px;
@@ -94,7 +94,7 @@
         .result .replay-btn {
             background-color: #eec4af;
             border-radius: 5px;
-            border: 3px solid #ef6e2e;
+            border: 3px solid var(--main-color);
             padding: 5px 10px;
             text-transform: uppercase;
             font-weight: bold;

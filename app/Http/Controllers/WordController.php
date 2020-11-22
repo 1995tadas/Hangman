@@ -23,9 +23,9 @@ class WordController extends Controller
         return $wordService->redirectOrFail($word, 'words.index');
     }
 
-    public function edit(Word $word)
+    public function edit(Word $id)
     {
-        return view('words.edit', compact('word'));
+        return view('words.edit', ['word' => $id]);
     }
 
     public function update(WordRequest $request, $id)
@@ -38,10 +38,10 @@ class WordController extends Controller
         return $wordService->redirectOrFail($word, 'words.index');
     }
 
-    public function destroy(Word $word)
+    public function destroy(Word $id)
     {
         try {
-            return $word->delete();
+            return $id->delete();
         } catch (\Exception $e) {
             return $e;
         }

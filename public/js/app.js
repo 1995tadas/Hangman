@@ -38176,7 +38176,7 @@ var render = function() {
                 _vm.winner ? _c("span", [_vm._v("Laimėjai!")]) : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
-                  _vm._v("Teisingas atsakymas buvo\n                    "),
+                  _vm._v("Teisingas žodis buvo\n                    "),
                   _c(
                     "span",
                     { staticClass: "correct-answer" },

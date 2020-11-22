@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,18 +14,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'layout.app');
-
-Route::prefix('words')->name('words.')->group(function () {
+Route::prefix('words')->name('words.')->middleware('auth')->group(function () {
     Route::get('/', 'WordController@index')->name('index');
     Route::view('create', 'words.create')->name('create');
     Route::post('/', 'WordController@store')->name('store');
-    Route::get('edit/{word}', 'WordController@edit')->where('word', '[0-9]+')->name('edit');
-    Route::put('{id}', 'WordController@update')->where('id', '[0-9]+')->name('update');
-    Route::delete('{word}', 'WordController@destroy')->where('id', '[0-9]+')->name('destroy');
+    Route::where(['id', '[0-9]+'])->group(function () {
+        Route::get('{id}', 'WordController@edit')->name('edit');
+        Route::put('{id}', 'WordController@update')->name('update');
+        Route::delete('{id}', 'WordController@destroy')->name('destroy');
+    });
 });
 
-Route::prefix('games')->name('games.')->group(function () {
-    Route::get('play', 'GameController@play')->name('play');
-});
+Route::get('/', 'GameController@play')->name('game.play');
 
+
+Auth::routes([
+    'register' => config('app.registration'),
+    'reset' => false,
+    'verify' => false
+]);
+
+Route::get('/home', 'HomeController@index')->name('home');

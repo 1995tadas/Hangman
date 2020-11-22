@@ -1,14 +1,17 @@
 @import "fonts";
 
 // Variables
-@import 'variables';
+@import "variables";
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+// Colors
+@import "colors";
 
-@import "global";
+//Parts
+@import "parts/global";
 
-@import "word";
+@import "parts/word";
 
-@import "form";
+@import "parts/form";
 
-@import "play";
+@import "parts/play";

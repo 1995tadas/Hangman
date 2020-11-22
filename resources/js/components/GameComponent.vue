@@ -21,7 +21,7 @@
                 <div class="result" v-else>
                     <span v-if="loser">Pralaimėjai!</span>
                     <span v-if="winner">Laimėjai!</span>
-                    <span>Teisingas atsakymas buvo
+                    <span>Teisingas žodis buvo
                         <span class="correct-answer">
                             <template v-for="letter in letters">{{ letter }}</template>
                         </span>

@@ -13,7 +13,20 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Hangman'),
+
+    /*
+   |--------------------------------------------------------------------------
+   | Admin registration status
+   |--------------------------------------------------------------------------
+   |
+   | This value is the status of admin registration.
+   | Used for enabling and disabling registration
+   |
+   */
+
+    'registration' => (bool) env('REGISTRATION', true),
+
 
     /*
     |--------------------------------------------------------------------------
