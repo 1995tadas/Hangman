@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Dependencies update">
-      <change beforePath="$PROJECT_DIR$/.idea/hangman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hangman.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
     </list>
@@ -196,7 +194,7 @@
       <workItem from="1605799926713" duration="11200000" />
       <workItem from="1605868870812" duration="14589000" />
       <workItem from="1605973414943" duration="10583000" />
-      <workItem from="1606044457303" duration="13153000" />
+      <workItem from="1606044457303" duration="13592000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -276,7 +274,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1606056326980</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="heroku error fix">
+      <created>1606057804837</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1606057804838</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +302,8 @@
     <MESSAGE value="Input letter validation" />
     <MESSAGE value="Authentication for word creation" />
     <MESSAGE value="Dependencies update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dependencies update" />
+    <MESSAGE value="heroku error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="heroku error fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606053858382">
@@ -317,10 +322,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606046906705" />
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1606057292076">
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1606057803740">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1606057292076" />
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1606057803740" />
     <state x="150" y="66" width="1228" height="695" key="DiffContextDialog" timestamp="1605983809145">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -341,10 +346,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1605880642283" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606057264528">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606057810807">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606057264528" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606057810807" />
     <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1606048302099">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
