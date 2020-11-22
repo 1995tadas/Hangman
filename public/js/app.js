@@ -2163,15 +2163,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    letters: {
-      type: Array,
+    word: {
+      type: String,
       required: true
     }
   },
   data: function data() {
     return {
+      letters: [],
       letter: '',
-      letterCount: this.letters.length,
+      letterCount: this.word.length,
       guessedLetters: [],
       loser: false,
       winner: false,
@@ -2179,9 +2180,13 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
+    this.splitWord();
     this.paintHangman();
   },
   methods: {
+    splitWord: function splitWord() {
+      this.letters = this.word.split('');
+    },
     guess: function guess() {
       var _this = this;
 

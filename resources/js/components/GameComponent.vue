@@ -44,15 +44,16 @@
 <script>
 export default {
     props: {
-        letters: {
-            type: Array,
+        word: {
+            type: String,
             required: true
         }
     },
     data() {
         return {
+            letters: [],
             letter: '',
-            letterCount: this.letters.length,
+            letterCount: this.word.length,
             guessedLetters: [],
             loser: false,
             winner: false,
@@ -60,9 +61,13 @@ export default {
         }
     },
     mounted() {
+        this.splitWord();
         this.paintHangman();
     },
     methods: {
+        splitWord(){
+            this.letters = this.word.split('')
+        },
         guess() {
             let letter = this.addLetter();
             if (letter) {
