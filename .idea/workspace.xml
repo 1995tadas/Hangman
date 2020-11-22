@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +194,7 @@
       <workItem from="1605799926713" duration="11200000" />
       <workItem from="1605868870812" duration="14589000" />
       <workItem from="1605973414943" duration="10583000" />
-      <workItem from="1606044457303" duration="13919000" />
+      <workItem from="1606044457303" duration="15305000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -285,7 +286,13 @@
       <option name="presentableId" value="LOCAL−00015" />
       <updated>1606058237148</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL−00016" summary="heroku error fix">
+      <created>1606058736518</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1606058736518</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,10 +334,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606046906705" />
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1606058236381">
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1606058734001">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1606058236381" />
+    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1606058734001" />
     <state x="150" y="66" width="1228" height="695" key="DiffContextDialog" timestamp="1605983809145">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -351,10 +358,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1605880642283" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606058239574">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606058737722">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606058239574" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606058737722" />
     <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1606048302099">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
