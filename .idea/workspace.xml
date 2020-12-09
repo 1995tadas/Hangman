@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Word split placed in vue component">
+      <change afterPath="$PROJECT_DIR$/resources/lang/lt/auth.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/games/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/games/play.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/WordRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/WordRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/passwords.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +203,13 @@
       <workItem from="1605868870812" duration="14589000" />
       <workItem from="1605973414943" duration="10583000" />
       <workItem from="1606044457303" duration="17393000" />
-      <workItem from="1606074540597" duration="448000" />
+      <workItem from="1606074540597" duration="776000" />
+      <workItem from="1606151649503" duration="1111000" />
+      <workItem from="1606214367861" duration="1504000" />
+      <workItem from="1606226182409" duration="195000" />
+      <workItem from="1606387976298" duration="54000" />
+      <workItem from="1607529712431" duration="822000" />
+      <workItem from="1607532388641" duration="4493000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -301,7 +313,13 @@
       <option name="presentableId" value="LOCAL−00017" />
       <updated>1606059994911</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL−00018" summary="Word split placed in vue component">
+      <created>1606075216624</created>
+      <option name="number" value="LOCAL−00018" />
+      <option name="presentableId" value="LOCAL−00018" />
+      <updated>1606075216624</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,64 +343,7 @@
     <MESSAGE value="Dependencies update" />
     <MESSAGE value="heroku error fix" />
     <MESSAGE value="heroku column size fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="heroku column size fix" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606053858382">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="512" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1606053858382" />
-    <state x="198" y="153" width="902" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1602868901967">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="198" y="153" width="902" height="527" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.834@0.0.1536.834" timestamp="1602868901967" />
-    <state x="584" y="100" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1598524970531">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="584" y="100" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.834@0.0.1536.834" timestamp="1598524970531" />
-    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606046906705">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1606046906705" />
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2" timestamp="1606059994038">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="7" y="0" width="1378" height="834" key="CommitChangelistDialog2/0.0.1536.834@0.0.1536.834" timestamp="1606059994038" />
-    <state x="150" y="66" width="1228" height="695" key="DiffContextDialog" timestamp="1605983809145">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="150" y="66" width="1228" height="695" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1605983809145" />
-    <state x="636" y="150" key="FileChooserDialogImpl" timestamp="1606071805648">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="636" y="150" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1606071805648" />
-    <state x="604" y="341" key="NewPhpFileDialog" timestamp="1599122375366">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1599122375366" />
-    <state x="277" y="62" key="SettingsEditor" timestamp="1599120505959">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1599120505959" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1605880642283">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1536.834@0.0.1536.834" timestamp="1605880642283" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606060000385">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606060000385" />
-    <state x="478" y="150" width="579" height="534" key="find.popup" timestamp="1606048302099">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="478" y="150" width="579" height="534" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1606048302099" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1606074654273">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1606074654273" />
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1606052394848">
-      <screen x="0" y="0" width="1536" height="834" />
-    </state>
-    <state x="430" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606052394848" />
+    <MESSAGE value="Word split placed in vue component" />
+    <option name="LAST_COMMIT_MESSAGE" value="Word split placed in vue component" />
   </component>
 </project>

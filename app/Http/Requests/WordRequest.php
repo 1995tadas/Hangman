@@ -24,7 +24,7 @@ class WordRequest extends FormRequest
     public function rules()
     {
         return [
-            'word' => 'bail|required|alpha|unique:words|string|min:2|max:255'
+            'word' => 'bail|required|alpha|unique:words|string|between:2,255'
         ];
     }
 }

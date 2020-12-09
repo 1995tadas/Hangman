@@ -4,14 +4,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Administratoriaus prsijungimas</div>
+                <div class="card-header">{{__('auth.admin_login')}}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">E-pašto adresas</label>
+                            <label for="email"
+                                   class="col-md-4 col-form-label text-md-right">{{__('auth.email')}}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -26,7 +27,8 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">Slaptažodis</label>
+                            <label for="password"
+                                   class="col-md-4 col-form-label text-md-right">{{__('auth.password')}}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password"
@@ -48,7 +50,7 @@
                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        Prisiminti mane
+                                        {{__('auth.remember')}}
                                     </label>
                                 </div>
                             </div>
@@ -56,14 +58,11 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-outline-danger">
-                                    Prisijungti
-                                </button>
+                                <button type="submit" class="btn btn-outline-danger">{{__('auth.login')}}</button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        Pamiršai savo slaptažodį
-                                    </a>
+                                    <a class="btn btn-link"
+                                       href="{{ route('password.request') }}">{{__('auth.password_forgot')}}</a>
                                 @endif
                             </div>
                         </div>
