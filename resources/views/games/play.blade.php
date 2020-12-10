@@ -8,6 +8,6 @@
     @if($word)
         <game-component word="{{$word}}"></game-component>
     @else
-        <div>Words database is empty!</div>
+        <div>{{__('words.empty')}}</div>
     @endif
 @endsection

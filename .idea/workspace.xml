@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Word split placed in vue component">
-      <change afterPath="$PROJECT_DIR$/resources/lang/lt/auth.php" afterDir="false" />
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Words Vue Component refactored, commented and translated">
+      <change afterPath="$PROJECT_DIR$/resources/js/components/WordsComponent.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/lang/lt/words.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/WordRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/WordRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/auth.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/passwords.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/passwords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/WordForm.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/WordForm.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExpandWordsComponent.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lt/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lt/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/parts/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/parts/_form.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/parts/_word.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/parts/_word.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/games/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/games/play.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/words/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/words/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/words/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/words/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/words/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/words/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,26 +152,27 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/lang/lt" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Bitnami\wampstack-7.3.23-0\apache2\htdocs\hangman\resources\lang\lt" />
+      <recent name="C:\Bitnami\wampstack-7.3.23-0\apache2\htdocs\hangman\resources\sass" />
+      <recent name="C:\xamp\htdocs\hangman\resources\js\components" />
+      <recent name="C:\xamp\htdocs\hangman\resources\sass" />
+      <recent name="C:\xamp\htdocs\hangman\resources\views\words" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Bitnami\wampstack-7.3.23-0\apache2\htdocs\hangman\resources\views\layouts" />
       <recent name="C:\Bitnami\wampstack-7.3.23-0\apache2\htdocs\hangman\resources\sass\parts" />
       <recent name="C:\xamp\htdocs\hangman\resources\views" />
       <recent name="C:\xamp\htdocs\hangman\database" />
       <recent name="C:\xamp\htdocs\hangman\storage" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Bitnami\wampstack-7.3.23-0\apache2\htdocs\hangman\resources\sass" />
-      <recent name="C:\xamp\htdocs\hangman\resources\js\components" />
-      <recent name="C:\xamp\htdocs\hangman\resources\sass" />
-      <recent name="C:\xamp\htdocs\hangman\resources\views\words" />
     </key>
   </component>
   <component name="RunManager">
@@ -209,7 +217,9 @@
       <workItem from="1606226182409" duration="195000" />
       <workItem from="1606387976298" duration="54000" />
       <workItem from="1607529712431" duration="822000" />
-      <workItem from="1607532388641" duration="4493000" />
+      <workItem from="1607532388641" duration="5367000" />
+      <workItem from="1607596666448" duration="241000" />
+      <workItem from="1607596984118" duration="13827000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -319,7 +329,13 @@
       <option name="presentableId" value="LOCAL−00018" />
       <updated>1606075216624</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL−00019" summary="Auth views translations to lithuanian language">
+      <created>1607538969717</created>
+      <option name="number" value="LOCAL−00019" />
+      <option name="presentableId" value="LOCAL−00019" />
+      <updated>1607538969717</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +360,11 @@
     <MESSAGE value="heroku error fix" />
     <MESSAGE value="heroku column size fix" />
     <MESSAGE value="Word split placed in vue component" />
-    <option name="LAST_COMMIT_MESSAGE" value="Word split placed in vue component" />
+    <MESSAGE value="Auth views translations to lithuanian language" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth views translations to lithuanian language" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

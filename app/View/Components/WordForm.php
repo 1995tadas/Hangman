@@ -8,16 +8,19 @@ class WordForm extends Component
 {
     public $action;
     public $value;
+    public $buttonValue;
 
     /**
      * Create a new component instance.
      *
      * @param $action
+     * @param $buttonValue
      * @param string $value
      */
-    public function __construct($action, $value = '')
+    public function __construct($action, $buttonValue, $value = '')
     {
         $this->action = $action;
+        $this->buttonValue = $buttonValue;
         $this->value = $value;
     }
 

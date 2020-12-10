@@ -150,7 +150,8 @@ return [
         'password' => 'slaptažodžio',
         'email' => 'el-pašto',
         'name' => 'vardo',
-        'password_confirmation' => 'slaptažodžio patvirtinimo'
+        'password_confirmation' => 'slaptažodžio patvirtinimo',
+        'word' => 'žodžio'
     ],
 
 ];

@@ -12,6 +12,7 @@
         width: 100%;
         font-size: 2em;
         background-color: #fff;
+        text-align: center;
     }
 
     input[type="submit"] {
@@ -23,6 +24,7 @@
         font-size: 1.1em;
         padding: 10px 0;
         width: 30%;
+        text-transform: capitalize;
     }
     .error-text {
         color: #f7261d;

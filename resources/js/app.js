@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('expand-words-component', require('./components/ExpandWordsComponent.vue').default);
+Vue.component('words-component', require('./components/WordsComponent.vue').default);
 Vue.component('game-component', require('./components/GameComponent.vue').default);
 
 /**
