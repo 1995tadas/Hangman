@@ -4,7 +4,8 @@
     <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Services/ErrorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/ErrorService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/lt/words.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/words.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +209,7 @@
       <workItem from="1607596984118" duration="14593000" />
       <workItem from="1607714084951" duration="1045000" />
       <workItem from="1607783062938" duration="14440000" />
-      <workItem from="1607801447647" duration="42000" />
+      <workItem from="1607801447647" duration="541000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -336,7 +337,13 @@
       <option name="presentableId" value="LOCAL−00021" />
       <updated>1607801088780</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL−00022" summary="Word edits redirection link changed">
+      <created>1607801578155</created>
+      <option name="number" value="LOCAL−00022" />
+      <option name="presentableId" value="LOCAL−00022" />
+      <updated>1607801578155</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +371,8 @@
     <MESSAGE value="Auth views translations to lithuanian language" />
     <MESSAGE value="Words Vue Component refactored, commented and translated" />
     <MESSAGE value="Aften word creation or edition success messages will be shown with links" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aften word creation or edition success messages will be shown with links" />
+    <MESSAGE value="Word edits redirection link changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Word edits redirection link changed" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

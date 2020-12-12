@@ -11,4 +11,7 @@ return [
     'delete' => 'ištrinti',
     'yes' => 'taip',
     'no' => 'ne',
+    'edited' => 'buvo redaguotas sėkmingai',
+    'created' => 'buvo sukurtas sėkmingai',
+    'deleted' => 'įrašas ištrintas',
 ];

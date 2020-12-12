@@ -21,7 +21,7 @@ class WordController extends Controller
         ]);
         $errorService = new ErrorService();
         return $errorService->redirectOrFail($word, 'words.create')
-            ->with('success', ' was saved successfully')
+            ->with('success', '' . __('words.created'))
             ->with('word', $word->word)
             ->with('word_id', $word->id);
     }
@@ -40,7 +40,7 @@ class WordController extends Controller
         if ($updated) {
             $errorService = new ErrorService();
             return $errorService->redirectOrFail($word, 'words.create')
-                ->with('success', ' was edited successfully')
+                ->with('success', ' ' . __('words.edited'))
                 ->with('word', $word->word)
                 ->with('word_id', $word->id);
         }
@@ -59,7 +59,7 @@ class WordController extends Controller
                 }
 
                 return redirect(route('words.create'))
-                    ->with('success', 'Record was deleted!');
+                    ->with('success', __('words.deleted'));
             }
 
             abort(404);

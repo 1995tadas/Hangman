@@ -21,14 +21,15 @@
             @endif
             {{ Session::get( 'success' ) }}
             @if(Session::has( 'word_id' ))
-                <a class="success-edit" href="{{route('words.edit', ['id' => Session::get( 'word_id' )])}}">
+                <a href="{{route('words.edit', ['id' => Session::get( 'word_id' )])}}"
+                   title="{{__('words.edit')}}" class="success-edit">
                     <i class="fas fa-pencil-ruler"></i>
                 </a>
                 <form class="success-form" action="{{route('words.destroy', ['id' => Session::get( 'word_id' )])}}"
                       method="post">
                 @csrf
                 @method('delete')
-                <button class="success-button">
+                <button title="{{__('words.delete')}}" class="success-button">
                     <i class="far fa-trash-alt"></i>
                 </button>
                 </form>
