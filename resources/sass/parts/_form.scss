@@ -7,26 +7,66 @@
     height: 100%;
     font-family: 'IBM Plex Sans', sans-serif;
 
-    input[type="text"] {
-        padding: 5px;
-        width: 100%;
-        font-size: 2em;
-        background-color: #fff;
+    .word-form {
+        text-align: center;
+
+        .word-input {
+            padding: 5px;
+            width: 100%;
+            font-size: 2em;
+            background-color: #fff;
+            text-align: center;
+            margin-bottom: 15px;
+            display: inline;
+        }
+
+        .word-submit {
+            cursor: pointer;
+            color: #fff;
+            background-color: #646165;
+            border: 0;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            min-width: 30%;
+            text-transform: capitalize;
+            box-sizing: border-box;
+        }
+    }
+
+    .error, .success {
         text-align: center;
     }
 
-    input[type="submit"] {
-        cursor: pointer;
-        margin-top: 15px;
-        color: #fff;
-        background-color: #646165;
-        border: 0;
-        font-size: 1.1em;
-        padding: 10px 0;
-        width: 30%;
-        text-transform: capitalize;
-    }
-    .error-text {
+    .error {
+        text-transform: uppercase;
+        margin-bottom: 15px;
         color: #f7261d;
+    }
+
+    .success {
+        margin-top: 20px;
+        font-size: 16px;
+        color: #2d995b;
+        background-color: #f1f8f1;
+        padding: 3px 10px;
+        border-radius: 5px;
+
+        .success-word {
+            font-size: 20px;
+            color: #000;
+            text-transform: uppercase;
+        }
+
+        .success-edit {
+            color: black;
+        }
+
+        .success-form {
+            display: inline;
+
+            .success-button {
+                background-color: transparent;
+            }
+        }
     }
 }

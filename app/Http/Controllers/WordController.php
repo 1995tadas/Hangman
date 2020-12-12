@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\WordRequest;
-use App\Http\Services\WordService;
+use App\Http\Services\ErrorService;
 use App\Word;
 
 class WordController extends Controller
@@ -16,11 +16,14 @@ class WordController extends Controller
 
     public function store(WordRequest $request)
     {
-        $wordService = new WordService();
         $word = Word::create([
             'word' => strtolower($request->word),
         ]);
-        return $wordService->redirectOrFail($word, 'words.index');
+        $errorService = new ErrorService();
+        return $errorService->redirectOrFail($word, 'words.create')
+            ->with('success', ' was saved successfully')
+            ->with('word', $word->word)
+            ->with('word_id', $word->id);
     }
 
     public function edit(Word $id)
@@ -28,20 +31,38 @@ class WordController extends Controller
         return view('words.edit', ['word' => $id]);
     }
 
-    public function update(WordRequest $request, $id)
+    public function update(WordRequest $request, Word $id)
     {
-        $wordService = new WordService();
-        $wordModel = new Word;
-        $word = $wordModel->findOrFail($id)->update([
+        $word = $id;
+        $updated = $word->update([
             'word' => strtolower($request->word),
         ]);
-        return $wordService->redirectOrFail($word, 'words.index');
+        if ($updated) {
+            $errorService = new ErrorService();
+            return $errorService->redirectOrFail($word, 'words.edit', ['id' => $word->id])
+                ->with('success', ' was edited successfully')
+                ->with('word', $word->word)
+                ->with('word_id', $word->id);
+        }
+
+        abort(404);
     }
 
     public function destroy(Word $id)
     {
+
         try {
-            return $id->delete();
+            $deleted = $id->delete();
+            if ($deleted) {
+                if (request()->wantsJson()) {
+                    return response()->json($deleted);
+                }
+
+                return redirect(route('words.create'))
+                    ->with('success', 'Record was deleted!');
+            }
+
+            abort(404);
         } catch (\Exception $e) {
             return $e;
         }

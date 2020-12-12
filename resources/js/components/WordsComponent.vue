@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div v-else>{{translation.empty}}</div>
+    <div v-else>{{ translation.empty }}</div>
 </template>
 <script>
 export default {
@@ -174,7 +174,12 @@ export default {
         */
         deleteWord(index, letter) {
             this.readyToDelete = false;
-            axios.delete(this.deleteRoute + '/' + index).then(
+            let config = {
+                headers: {
+                    "Accept": "application/json"
+                }
+            };
+            axios.delete(this.deleteRoute + '/' + index, config).then(
                 (response) => {
                     if (response.data) {
                         delete this.groupedWords[letter][index];
