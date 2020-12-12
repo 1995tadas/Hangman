@@ -39,7 +39,7 @@ class WordController extends Controller
         ]);
         if ($updated) {
             $errorService = new ErrorService();
-            return $errorService->redirectOrFail($word, 'words.edit', ['id' => $word->id])
+            return $errorService->redirectOrFail($word, 'words.create')
                 ->with('success', ' was edited successfully')
                 ->with('word', $word->word)
                 ->with('word_id', $word->id);

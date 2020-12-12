@@ -4,10 +4,10 @@ namespace App\Http\Services;
 
 class ErrorService
 {
-    public function redirectOrFail(object $ifTrue, string $redirectRoute, array $parameters = [], int $message = 404): object
+    public function redirectOrFail(object $ifTrue, string $redirectRoute, int $message = 404): object
     {
         if ($ifTrue) {
-            return redirect(route($redirectRoute, $parameters));
+            return redirect(route($redirectRoute));
         }
 
         abort($message);

@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Aften word creation or edition success messages will be shown with links">
-      <change afterPath="$PROJECT_DIR$/app/Http/Services/ErrorService.php" afterDir="false" />
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Services/WordService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/WordService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/WordsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/lt/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/parts/_form.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/parts/_form.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/word-form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Services/ErrorService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Services/ErrorService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +207,8 @@
       <workItem from="1607596666448" duration="241000" />
       <workItem from="1607596984118" duration="14593000" />
       <workItem from="1607714084951" duration="1045000" />
-      <workItem from="1607783062938" duration="14132000" />
+      <workItem from="1607783062938" duration="14440000" />
+      <workItem from="1607801447647" duration="42000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -336,7 +330,13 @@
       <option name="presentableId" value="LOCAL−00020" />
       <updated>1607613025198</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL−00021" summary="Aften word creation or edition success messages will be shown with links">
+      <created>1607801088780</created>
+      <option name="number" value="LOCAL−00021" />
+      <option name="presentableId" value="LOCAL−00021" />
+      <updated>1607801088780</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +363,8 @@
     <MESSAGE value="Word split placed in vue component" />
     <MESSAGE value="Auth views translations to lithuanian language" />
     <MESSAGE value="Words Vue Component refactored, commented and translated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Words Vue Component refactored, commented and translated" />
+    <MESSAGE value="Aften word creation or edition success messages will be shown with links" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aften word creation or edition success messages will be shown with links" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
