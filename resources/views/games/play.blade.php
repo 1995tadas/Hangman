@@ -1,10 +1,16 @@
 @extends('layouts.viewport')
 @section('viewport-content')
-    @auth()
-        <a class="top-link" href="{{route('words.index')}}">Pridėti naujų žodžių</a>
-    @else
-        <a class="top-link" href="{{route('login')}}">Admin</a>
-    @endauth
+    <div class="top-link">
+        @auth()
+            <a href="{{route('words.index')}}" title="{{__('words.add_many')}}">
+                <i class="fas fa-plus fa-2x"></i>
+            </a>
+        @else
+            <a title="{{__('auth.admin')}}" href="{{route('login')}}">
+                <i class="fas fa-user-shield fa-2x"></i>
+            </a>
+        @endauth
+    </div>
     @if($word)
         <game-component word="{{$word}}"></game-component>
     @else

@@ -22,8 +22,9 @@ return [
     'password_confirmation' => 'Slaptažodžio patvirtinimas',
     'remember' => 'Prisiminti mane',
     'login' => 'Prisijungti',
+    'logout' => 'Atsijungti',
     'password_forgot' => 'Pamiršai savo slaptažodį',
     'register' => 'Registruotis',
-    'name' => 'Vardas'
-
+    'name' => 'Vardas',
+    'admin' => 'administratorius'
 ];

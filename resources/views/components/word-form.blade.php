@@ -1,10 +1,14 @@
+<div class="top-link">
+    <a href="{{route('words.index')}}" title="{{__('words.everything')}}">
+        <i class="fas fa-arrow-alt-circle-left fa-2x"></i>
+    </a>
+</div>
 <div class="form-container">
     <form class="word-form" autocomplete="off" action="{{$action}}" method="post">
         {{ $slot }}
         @csrf
         <input class="word-input" type="text" name="word" @if($value) value="{{$value}}" @endif maxlength="255"
-               autofocus required
-               autocapitalize="characters">
+               autofocus required autocapitalize="characters">
         @error('word')
         <div class="error">
             {{$message}}
@@ -28,7 +32,7 @@
                 <form class="success-form" action="{{route('words.destroy', ['id' => Session::get( 'word_id' )])}}"
                       method="post">
                 @csrf
-                @method('delete')
+                    @method('delete')
                 <button title="{{__('words.delete')}}" class="success-button">
                     <i class="far fa-trash-alt"></i>
                 </button>

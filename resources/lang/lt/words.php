@@ -14,4 +14,6 @@ return [
     'edited' => 'buvo redaguotas sėkmingai',
     'created' => 'buvo sukurtas sėkmingai',
     'deleted' => 'įrašas ištrintas',
+    'everything' => 'visi žodžiai',
+    'add_many' => 'pridėti naujų žodžių'
 ];

@@ -1,11 +1,16 @@
 @extends('layouts.app')
 @section('content')
-    @auth()
+    <div class="top-link">
+        <a href="{{route('game.play')}}">
+            <i class="fa fa-gamepad fa-2x" aria-hidden="true" title="{{__('game.game')}}"></i>
+        </a>
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button class="top-link" type="submit">Atsijungti</button>
+            <button type="submit">
+                <i class="fas fa-sign-out-alt fa-2x" aria-hidden="true" title="{{__('auth.logout')}}"></i>
+            </button>
         </form>
-    @endauth
+    </div>
     <div class="custom-container">
         <section class="words">
             <a class="admin-link" href="{{route('words.create')}}" title="{{__('words.add')}}">
