@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="" />
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -206,7 +209,7 @@
       <workItem from="1607783062938" duration="14440000" />
       <workItem from="1607801447647" duration="1196000" />
       <workItem from="1607868865175" duration="7922000" />
-      <workItem from="1607945804981" duration="10637000" />
+      <workItem from="1607945804981" duration="12307000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -358,7 +361,13 @@
       <option name="presentableId" value="LOCAL−00025" />
       <updated>1607962720305</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL−00026" summary="Vue production">
+      <created>1607963246616</created>
+      <option name="number" value="LOCAL−00026" />
+      <option name="presentableId" value="LOCAL−00026" />
+      <updated>1607963246616</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -390,7 +399,8 @@
     <MESSAGE value="Word messages translations" />
     <MESSAGE value="Top navbar links reformatted" />
     <MESSAGE value="Game component was translated and commented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game component was translated and commented" />
+    <MESSAGE value="Vue production" />
+    <option name="LAST_COMMIT_MESSAGE" value="Vue production" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
