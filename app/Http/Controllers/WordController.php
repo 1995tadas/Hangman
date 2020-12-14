@@ -8,6 +8,11 @@ use App\Word;
 
 class WordController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $words = Word::all(['word', 'id'])->sortBy('word')->values();

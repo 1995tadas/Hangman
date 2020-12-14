@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\User;
 use App\Word;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
@@ -10,6 +11,13 @@ use Tests\TestCase;
 class WordTest extends TestCase
 {
     use RefreshDatabase;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
+    }
 
     /** @test */
     public function can_word_be_saved()
@@ -34,9 +42,19 @@ class WordTest extends TestCase
 
     /** @test */
     public function can_word_be_deleted()
-    {   $this->withoutExceptionHandling();
+    {
         $wordFactoryCreate = factory(Word::class)->create();
-        $response = $this->delete(route('words.destroy', ['word' => $wordFactoryCreate->id]));
+        $response = $this->delete(route('words.destroy', ['id' => $wordFactoryCreate->id]));
+        $response->assertStatus(302);
+    }
+
+    /** @test */
+    public function can_word_be_deleted_json()
+    {
+        $this->withoutExceptionHandling();
+        $wordFactoryCreate = factory(Word::class)->create();
+        $response = $this->withHeaders(['accept' => 'application/json'])
+            ->delete(route('words.destroy', ['id' => $wordFactoryCreate->id]));
         $response->assertStatus(200);
     }
 
@@ -58,6 +76,7 @@ class WordTest extends TestCase
                 'word' => $wordFactory->word,
             ]);
         }
+
         $response->assertSessionHasErrors();
     }
 
@@ -116,7 +135,7 @@ class WordTest extends TestCase
     public function does_edit_have_word()
     {
         $wordFactory = factory(Word::class)->create();
-        $response = $this->get(route('words.edit', ['word' => $wordFactory->id]));
+        $response = $this->get(route('words.edit', ['id' => $wordFactory->id]));
         $response->assertStatus(200);
         $response->assertViewHas('word');
     }
@@ -125,7 +144,7 @@ class WordTest extends TestCase
     public function does_edit_word_id_parameter_valid()
     {
         $wordFactory = factory(Word::class)->make();
-        $response = $this->get(route('words.edit', ['word' => $wordFactory->word]));
+        $response = $this->get(route('words.edit', ['id' => $wordFactory->word]));
         $response->assertStatus(404);
     }
 
@@ -134,7 +153,7 @@ class WordTest extends TestCase
     {
         $wordFactory = factory(Word::class)->create();
         $wordFactory->delete();
-        $response = $this->get(route('words.edit', ['word' => $wordFactory->id]));
+        $response = $this->get(route('words.edit', ['id' => $wordFactory->id]));
         $response->assertStatus(404);
     }
 
@@ -142,7 +161,7 @@ class WordTest extends TestCase
     public function does_update_word_id_parameter_valid()
     {
         $wordFactory = factory(Word::class)->make();
-        $response = $this->put(route('words.edit', ['word' => $wordFactory->word]), [
+        $response = $this->put(route('words.edit', ['id' => $wordFactory->word]), [
             'word' => $wordFactory->word
         ]);
         $response->assertStatus(404);
@@ -152,15 +171,16 @@ class WordTest extends TestCase
     public function does_destroy_word_id_parameter_valid()
     {
         $wordFactory = factory(Word::class)->make();
-        $response = $this->delete(route('words.destroy', ['word' => $wordFactory->word]));
+        $response = $this->delete(route('words.destroy', ['id' => $wordFactory->word]));
         $response->assertStatus(404);
     }
+
     /** @test */
     public function does_destroy_id_parameter_do_exist()
     {
         $wordFactory = factory(Word::class)->create();
         $wordFactory->delete();
-        $response = $this->delete(route('words.destroy', ['word' => $wordFactory->id]));
+        $response = $this->delete(route('words.destroy', ['id' => $wordFactory->id]));
         $response->assertStatus(404);
     }
 }
