@@ -108,7 +108,7 @@ export default {
         },
 
         /*
-            toggles collapsion of all letter guides
+            Toggles collapsion of all letter guides
         */
         toggleAllGuides() {
             this.IsGuidesDisabled = !this.IsGuidesDisabled;

@@ -11222,6 +11222,7 @@ html,
   line-height: 1;
   margin-left: 5px;
   background: var(--second-color);
+  margin-bottom: 5px;
 }
 
 @media only screen and (max-width: 576px) {
@@ -11258,9 +11259,20 @@ html,
 .play-center .input-block .result > span:first-child {
   font-weight: bold;
   color: #ef2017;
-  font-size: 30pt;
+  font-size: 40pt;
   line-height: 1;
   padding-top: 10px;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 576px) {
+  .play-center .input-block .result > span:first-child {
+    font-size: 20pt;
+  }
+}
+
+.play-center .input-block .result > span:nth-child(even) {
+  margin: 10px 0;
 }
 
 .play-center .input-block .result > span .correct-answer {
@@ -11271,7 +11283,7 @@ html,
   padding: 0 5px;
 }
 
-.play-center .input-block .result .replay-btn {
+.play-center .input-block .result .replay-button {
   background-color: #eec4af;
   border-radius: 5px;
   border: 3px solid var(--main-color);
@@ -11279,6 +11291,10 @@ html,
   text-transform: uppercase;
   font-weight: bold;
   margin: 5px 0;
+}
+
+.play-center .input-block .result .replay-button:hover {
+  opacity: 0.8;
 }
 
 .play-center .input-cell,
@@ -11289,6 +11305,12 @@ html,
   text-transform: uppercase;
 }
 
+.play-center .guessed-letters {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .play-center .guessed-letters ul {
   color: #c51b1f;
   margin: 0;
@@ -11297,11 +11319,6 @@ html,
   list-style: none;
   text-transform: capitalize;
   font-size: 25pt;
-}
-
-.play-center .guessed-letters ul .guessed-letters-placeholder {
-  visibility: hidden;
-  margin: 0;
 }
 
 .play-center .guessed-letters ul li {

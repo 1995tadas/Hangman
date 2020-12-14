@@ -2,7 +2,7 @@
 @section('content')
     <div class="top-link">
         <a href="{{route('game.play')}}">
-            <i class="fa fa-gamepad fa-2x" aria-hidden="true" title="{{__('game.game')}}"></i>
+            <i class="fa fa-gamepad fa-2x" aria-hidden="true" title="{{__('games.game')}}"></i>
         </a>
         <form method="POST" action="{{ route('logout') }}">
             @csrf

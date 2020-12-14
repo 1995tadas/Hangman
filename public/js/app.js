@@ -1951,8 +1951,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
+    translation: {
+      type: Object,
+      required: true
+    },
     word: {
       type: String,
       required: true
@@ -1964,34 +1970,63 @@ __webpack_require__.r(__webpack_exports__);
       letter: '',
       letterCount: this.word.length,
       guessedLetters: [],
-      loser: false,
-      winner: false,
+      lives: 6,
+      end: null,
       letterRegex: '^[A-Za-zĄąČčĘęĖėĮįŠšŲųŪūŽž]$'
     };
   },
   mounted: function mounted() {
-    this.splitWord();
+    this.letters = this.splitWord(this.word);
     this.paintHangman();
   },
   methods: {
-    splitWord: function splitWord() {
-      this.letters = this.word.split('');
-    },
-    guess: function guess() {
-      var _this = this;
+    /*
+        Splits string and return string letter array
+    */
+    splitWord: function splitWord(word) {
+      if (typeof word === 'string') {
+        return word.split('');
+      }
 
+      return false;
+    },
+
+    /*
+     If letter is correct will add it to guessedletters array
+     Then will count lives and paint hangman on canvas
+    */
+    guess: function guess() {
       var letter = this.addLetter();
 
       if (letter) {
-        var wrongGuesses = this.guessedLetters.filter(function (x) {
-          return !_this.letters.includes(x);
-        }).length;
-        this.paintHangman(wrongGuesses);
+        var lives = this.countLives(this.lives);
+        this.paintHangman(lives);
       }
     },
-    loss: function loss() {
-      this.loser = true;
+
+    /*
+    Count hw many lives are left
+    */
+    countLives: function countLives(lives) {
+      var _this = this;
+
+      var wrongGuesses = this.guessedLetters.filter(function (x) {
+        return !_this.letters.includes(x);
+      }).length;
+      return lives -= wrongGuesses;
     },
+
+    /*
+        Ends game and sets status as lost
+    */
+    loss: function loss() {
+      this.end = false;
+    },
+
+    /*
+        Checks if all word letters have been guessed
+        If yes ends game and sets status as lost
+    */
     won: function won() {
       var _this2 = this;
 
@@ -2003,15 +2038,27 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      this.winner = this.guessedLetters.filter(function (x) {
+      var won = this.guessedLetters.filter(function (x) {
         return _this2.letters.includes(x);
       }).length === uniqueLetters.length;
+
+      if (won) {
+        this.end = won;
+      }
     },
+
+    /*
+        Validates input letter and checks if it was already guesses
+    */
     validateLetter: function validateLetter() {
       this.letter = this.letter.toLowerCase();
       var regex = new RegExp(this.letterRegex);
       return regex.test(this.letter) && !this.letterIsGuessed(this.letter);
     },
+
+    /*
+        Pushes letter to already guessed letter array
+    */
     addLetter: function addLetter() {
       if (this.validateLetter()) {
         this.guessedLetters.push(this.letter[0]);
@@ -2022,11 +2069,19 @@ __webpack_require__.r(__webpack_exports__);
 
       return false;
     },
+
+    /*
+        Check if letter is already guesses
+    */
     letterIsGuessed: function letterIsGuessed(letter) {
       return this.guessedLetters.includes(letter);
     },
+
+    /*
+        Paints hangman on canvas, have six stages/lives
+    */
     paintHangman: function paintHangman() {
-      var wrong = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var lives = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lives;
       var canvas = document.getElementById('hangman-canvas');
       var ctx = canvas.getContext('2d');
       var x = 60;
@@ -2040,26 +2095,26 @@ __webpack_require__.r(__webpack_exports__);
       ctx.lineTo(x += 130, y);
       ctx.lineTo(x, y += 20);
 
-      if (wrong >= 1) {
+      if (lives < 6) {
         ctx.arc(x, y += 10, 10, 1.5 * Math.PI, 3.5 * Math.PI);
 
-        if (wrong >= 2) {
+        if (lives < 5) {
           ctx.moveTo(x, y += 10);
           ctx.lineTo(x, y += 40);
 
-          if (wrong >= 3) {
+          if (lives < 4) {
             ctx.moveTo(x, y -= 32);
             ctx.lineTo(x -= 30, y -= 13);
 
-            if (wrong >= 4) {
+            if (lives < 3) {
               ctx.moveTo(x += 30, y += 13);
               ctx.lineTo(x += 30, y -= 13);
 
-              if (wrong >= 5) {
+              if (lives < 2) {
                 ctx.moveTo(x -= 30, y += 44);
                 ctx.lineTo(x -= 20, y += 26);
 
-                if (wrong >= 6) {
+                if (lives < 1) {
                   ctx.moveTo(x += 20, y -= 26);
                   ctx.lineTo(x += 20, y += 26);
                   this.loss();
@@ -2211,7 +2266,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     },
 
     /*
-        toggles collapsion of all letter guides
+        Toggles collapsion of all letter guides
     */
     toggleAllGuides: function toggleAllGuides() {
       this.IsGuidesDisabled = !this.IsGuidesDisabled;
@@ -37956,7 +38011,19 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "play-center" }, [
     _c("div", [
-      _vm._m(0),
+      _c("div", { staticClass: "hangman-board" }, [
+        _c("canvas", {
+          attrs: {
+            id: "hangman-canvas",
+            title:
+              _vm.translation.left_lives[0] +
+              " " +
+              _vm.countLives(_vm.lives) +
+              " " +
+              _vm.translation.left_lives[1]
+          }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "div",
@@ -37965,8 +38032,8 @@ var render = function() {
             {
               name: "show",
               rawName: "v-show",
-              value: !_vm.loser && !_vm.winner,
-              expression: "!loser && !winner"
+              value: _vm.end === null,
+              expression: "end === null"
             }
           ],
           staticClass: "play-grid"
@@ -37996,7 +38063,7 @@ var render = function() {
         "div",
         { staticClass: "input-block" },
         [
-          !_vm.loser && !_vm.winner
+          _vm.end === null
             ? [
                 _c("input", {
                   directives: [
@@ -38039,7 +38106,7 @@ var render = function() {
                   staticClass: "game-button",
                   attrs: {
                     type: "button",
-                    value: "Spėk!",
+                    value: _vm.translation.game_button + "!",
                     disabled: _vm.letter === ""
                   },
                   on: {
@@ -38051,12 +38118,20 @@ var render = function() {
                 })
               ]
             : _c("div", { staticClass: "result" }, [
-                _vm.loser ? _c("span", [_vm._v("Pralaimėjai!")]) : _vm._e(),
+                _vm.end === true
+                  ? _c("span", [_vm._v(_vm._s(_vm.translation.won) + "!")])
+                  : _vm._e(),
                 _vm._v(" "),
-                _vm.winner ? _c("span", [_vm._v("Laimėjai!")]) : _vm._e(),
+                _vm.end === false
+                  ? _c("span", [_vm._v(_vm._s(_vm.translation.lost) + "!")])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
-                  _vm._v("Teisingas žodis buvo\n                    "),
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(_vm.translation.correct_word) +
+                      "\n                    "
+                  ),
                   _c(
                     "span",
                     { staticClass: "correct-answer" },
@@ -38069,50 +38144,47 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _vm._m(1)
+                _c("a", { attrs: { href: "" } }, [
+                  _c("button", { staticClass: "replay-button" }, [
+                    _vm._v(_vm._s(_vm.translation.replay) + "!")
+                  ])
+                ])
               ])
         ],
         2
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "guessed-letters" }, [
-      _c("span", { staticClass: "guessed-notation" }, [_vm._v("Spėjimai:")]),
-      _vm._v(" "),
-      _c(
-        "ul",
-        [
-          _c("li", { staticClass: "guessed-letters-placeholder" }, [
-            _vm._v("|")
-          ]),
-          _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.guessedLetters.length,
+            expression: "guessedLetters.length"
+          }
+        ],
+        staticClass: "guessed-letters"
+      },
+      [
+        _c("span", { staticClass: "guessed-notation" }, [
+          _vm._v(_vm._s(_vm.translation.guessed_letters) + ":")
+        ]),
+        _vm._v(" "),
+        _c(
+          "ul",
           _vm._l(_vm.guessedLetters, function(n) {
             return _c("li", [_vm._v(_vm._s(n))])
-          })
-        ],
-        2
-      )
-    ])
+          }),
+          0
+        )
+      ]
+    )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "hangman-board" }, [
-      _c("canvas", { attrs: { id: "hangman-canvas" } })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "" } }, [
-      _c("button", { staticClass: "replay-btn" }, [_vm._v("Iš naujo!")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
