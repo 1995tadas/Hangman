@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="Top navbar links reformatted">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/WordsComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/WordsComponent.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/lt/game.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/lt/games.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/parts/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/parts/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/parts/_play.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/parts/_play.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/games/play.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/games/play.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/words/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/words/index.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -217,7 +206,7 @@
       <workItem from="1607783062938" duration="14440000" />
       <workItem from="1607801447647" duration="1196000" />
       <workItem from="1607868865175" duration="7922000" />
-      <workItem from="1607945804981" duration="9880000" />
+      <workItem from="1607945804981" duration="10637000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -363,7 +352,13 @@
       <option name="presentableId" value="LOCAL−00024" />
       <updated>1607888512949</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL−00025" summary="Game component was translated and commented">
+      <created>1607962720305</created>
+      <option name="number" value="LOCAL−00025" />
+      <option name="presentableId" value="LOCAL−00025" />
+      <updated>1607962720305</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -394,7 +389,8 @@
     <MESSAGE value="Word edits redirection link changed" />
     <MESSAGE value="Word messages translations" />
     <MESSAGE value="Top navbar links reformatted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Top navbar links reformatted" />
+    <MESSAGE value="Game component was translated and commented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game component was translated and commented" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
