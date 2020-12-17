@@ -2,7 +2,6 @@
 
 return [
     'game' => 'Žaidimas',
-    'game_button' =>'Spėk',
     'lost' =>'Neatspėjai',
     'won' =>'Atspėjai',
     'correct_word' => 'Teisingas žodis',

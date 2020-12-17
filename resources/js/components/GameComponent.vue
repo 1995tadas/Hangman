@@ -16,9 +16,7 @@
             <div class="input-block">
                 <template v-if="end === null">
                     <input type="text" class="input-cell" maxlength="1" autofocus required
-                           :pattern="letterRegex" v-model="letter" @keydown.enter="guess">
-                    <input type="button" class="game-button" :value="translation.game_button+'!'" @click.prevent="guess"
-                           :disabled="letter === ''">
+                           :pattern="letterRegex" v-model="letter">
                 </template>
                 <div class="result" v-else>
                     <span v-if="end === true">{{ translation.won }}!</span>
@@ -70,6 +68,19 @@ export default {
         this.letters = this.splitWord(this.word);
         this.paintHangman();
     },
+    watch: {
+        /*
+         If letter is correct will add it to guessedletters array
+         Then will count lives and paint hangman on canvas
+        */
+        letter: function () {
+            let validatedAndAdded = this.addLetter();
+            if (validatedAndAdded) {
+                let lives = this.countLives(this.lives)
+                this.paintHangman(lives);
+            }
+        }
+    },
     methods: {
 
         /*
@@ -84,19 +95,7 @@ export default {
         },
 
         /*
-         If letter is correct will add it to guessedletters array
-         Then will count lives and paint hangman on canvas
-        */
-        guess() {
-            let letter = this.addLetter();
-            if (letter) {
-                let lives = this.countLives(this.lives)
-                this.paintHangman(lives);
-            }
-        },
-
-        /*
-        Count hw many lives are left
+        Count how many lives are left
         */
         countLives(lives) {
             let wrongGuesses = this.guessedLetters.filter(x => !this.letters.includes(x)).length;
