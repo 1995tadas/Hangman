@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/GameComponent.vue" afterDir="false" />
-    </list>
+    <list default="true" id="f9f65d7f-0e93-43b4-88ab-7de2b9c18b05" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -213,7 +208,7 @@
       <workItem from="1607868865175" duration="7922000" />
       <workItem from="1607945804981" duration="17664000" />
       <workItem from="1608027469867" duration="168000" />
-      <workItem from="1608200539627" duration="2838000" />
+      <workItem from="1608200539627" duration="3140000" />
     </task>
     <task id="LOCAL−00001" summary="wip for words create &amp; update">
       <created>1598563317683</created>
@@ -389,7 +384,13 @@
       <option name="presentableId" value="LOCAL−00029" />
       <updated>1608202352658</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL−00030" summary="Game letter limitation">
+      <created>1608203637100</created>
+      <option name="number" value="LOCAL−00030" />
+      <option name="presentableId" value="LOCAL−00030" />
+      <updated>1608203637100</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +399,6 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="SHOW_UNVERSIONED_FILES_WHILE_COMMIT" value="false" />
-    <MESSAGE value="Vue init &amp; index admin filtering component" />
     <MESSAGE value="Vue ExpandWordsComponent" />
     <MESSAGE value="Word delete functionality" />
     <MESSAGE value="Delete model scroll &amp; alignment fix" />
@@ -423,7 +423,8 @@
     <MESSAGE value="Readme update" />
     <MESSAGE value="Unit tests update" />
     <MESSAGE value="Game button replaced by letter change watcher" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game button replaced by letter change watcher" />
+    <MESSAGE value="Game letter limitation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Game letter limitation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
