@@ -70,7 +70,7 @@ export default {
     },
     watch: {
         /*
-         If letter is correct will add it to guessedletters array
+         If letter is correct will add it to guessed letters array
          Then will count lives and paint hangman on canvas
         */
         letter: function () {
@@ -82,6 +82,13 @@ export default {
         }
     },
     methods: {
+
+        /*
+            Limits letters length to single character
+        */
+        limitLetterLength() {
+            this.letter = this.letter.slice(0, 1);
+        },
 
         /*
             Splits string and return string letter array
