@@ -14,6 +14,6 @@
     @if($word)
         <game-component word="{{$word}}" :translation="{{json_encode(trans('games'))}}"></game-component>
     @else
-        <div>{{__('words.empty')}}</div>
+        <h1 class="data-empty">{{__('words.empty')}}</h1>
     @endif
 @endsection
