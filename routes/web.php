@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('words')->name('words.')->middleware('auth')->group(function () {
     Route::get('/', 'WordController@index')->name('index');
-    Route::view('create', 'words.create')->name('create');
+    Route::get('create', function () {
+        return view('words.create');
+    })->name('create');
     Route::post('/', 'WordController@store')->name('store');
     Route::where(['id', '[0-9]+'])->group(function () {
         Route::get('{id}', 'WordController@edit')->name('edit');

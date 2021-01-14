@@ -11138,21 +11138,23 @@ html,
 .form-container .error,
 .form-container .success {
   text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
 .form-container .error {
+  font-size: 20px;
   text-transform: uppercase;
-  margin-bottom: 15px;
   color: #f7261d;
+  background-color: #e7c7c5;
 }
 
 .form-container .success {
-  margin-top: 20px;
-  font-size: 16px;
   color: #2d995b;
   background-color: #f1f8f1;
-  padding: 3px 10px;
-  border-radius: 5px;
 }
 
 .form-container .success .success-word {

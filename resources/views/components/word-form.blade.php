@@ -9,13 +9,13 @@
         @csrf
         <input class="word-input" type="text" name="word" @if($value) value="{{$value}}" @endif maxlength="255"
                autofocus required autocapitalize="characters">
-        @error('word')
-        <div class="error">
-            {{$message}}
-        </div>
-        @enderror
         <input class="word-submit" type="submit" value="{{$buttonValue}}">
     </form>
+    @error('word')
+    <div class="error">
+        {{$message}}
+    </div>
+    @enderror
     @if( Session::has( 'success' ))
         <span class="success">
             @if(Session::has( 'word' ))

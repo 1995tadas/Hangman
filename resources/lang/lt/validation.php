@@ -113,7 +113,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => ':attribute laukas turi būti string tipo.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => ':attribute laukas jau egzistuoja.',
+    'unique' => ':attribute jau egzistuoja.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -151,7 +151,7 @@ return [
         'email' => 'el-pašto',
         'name' => 'vardo',
         'password_confirmation' => 'slaptažodžio patvirtinimo',
-        'word' => 'žodžio'
+        'word' => 'Žodis'
     ],
 
 ];
