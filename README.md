@@ -28,6 +28,7 @@ https://tadassapitavicius.com/hangman
 1. Make sure you have right technologies installed
 1. Copy .env.example and rename it to .env (if you using unix operating system just run this command in app root `mv .env.example .env`)
 1. Run `composer install` and `npm install`(needed dependencies will be installed)
+1. Compile all VueJs, sass and other files by command `npm run dev ` or `npm run watch` for development,`npm run prod` for production
 1. Then run `php artisan key:generate` and replace database credentials inside .env file
 1. Migrate tables by running `php artisan migrate`
     1. (optional) PHPUnit database migration command "php artisan migrate --database=mysql_testing"
